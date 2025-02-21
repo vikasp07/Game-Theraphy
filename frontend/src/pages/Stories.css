@@ -1,0 +1,63 @@
+/* frontend/src/pages/Stories.css */
+.stories-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  .stories-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .error-message {
+    color: #dc3545;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .story-card {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #f9f9f9;
+    text-align: center;
+  }
+  
+  .story-card h3 {
+    margin-top: 0;
+    color: #007bff;
+  }
+  
+  .story-card audio {
+    width: 100%;
+    margin: 10px 0;
+  }
+  
+  .timestamp {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .back-btn {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  

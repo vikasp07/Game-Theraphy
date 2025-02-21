@@ -1,0 +1,241 @@
+{
+  "levels": [
+    {
+      "level": 1,
+      "stories": [
+        {
+          "title": "Serenity in the Woods",
+          "scenes": [
+            {
+  "text": "As the first light of dawn gently kissed the forest, I awoke to the soothing rustle of leaves and the soft melody of birds. Peace wrapped around me like a warm embrace.",
+  "image": "/story-game/story_1_scene_1_level_1.png",
+  "caption": "Dawn in the Woods",
+  "voice": "/story-game/story_1_scene_1_level_1_audio.mp3"
+},
+
+            {
+              "text": "I walked along a winding forest path, the gentle breeze carrying whispers of nature’s secrets. Every step lightened my heart, and the world seemed to breathe with me.",
+              "image": "/story-game/story_1_scene_2_level_1.png",
+              "caption": "Forest Path",
+              "voice": "/story-game/story_1_scene_2_level_1_audio.mp3",
+              "lottie": null
+            },
+            {
+              "text": "At the forest’s edge, a shimmering waterfall cascaded into a serene pool. The rhythmic murmur invited me to let go of all worries.",
+              "image": "/story-game/story_1_scene_3_level_1.png",
+              "caption": "Waterfall",
+              "voice": "/story-game/story_1_scene_3_level_1_audio.mp3",
+              "lottie": null
+            }
+          ]
+        },
+        {
+          "title": "Gentle City Morning",
+          "scenes": [
+            {
+              "text": "The city awoke softly as the morning light caressed the tall buildings, and a gentle calm filled the quiet streets.",
+              "image": "<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><defs><linearGradient id='cityMorning' x1='0' y1='0' x2='0' y2='1'><stop offset='0%' stop-color='#FFE0B2'/><stop offset='100%' stop-color='#FFCC80'/></linearGradient></defs><rect width='300' height='200' fill='url(#cityMorning)'/><rect x='20' y='80' width='40' height='120' fill='#6D4C41'/><rect x='80' y='60' width='50' height='140' fill='#5D4037'/></svg>",
+              "caption": "City at Dawn",
+              "voice": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+            },
+            {
+              "text": "The gentle hum of early traffic and the soft murmur of conversations created a comforting urban lullaby.",
+              "image": "<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><defs><linearGradient id='urbanLullaby' x1='0' y1='0' x2='0' y2='1'><stop offset='0%' stop-color='#FFECB3'/><stop offset='100%' stop-color='#FFE082'/></linearGradient></defs><rect width='300' height='200' fill='url(#urbanLullaby)'/><rect x='150' y='90' width='40' height='110' fill='#8D6E63'/></svg>",
+              "caption": "Urban Lullaby",
+              "voice": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+              "lottie": null
+            },
+            {
+              "text": "On a quiet rooftop, soft sunlight danced on glass and concrete, casting a warm and hopeful glow over the city.",
+              "image": "<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><defs><linearGradient id='rooftopGlow' x1='0' y1='0' x2='0' y2='1'><stop offset='0%' stop-color='#CFD8DC'/><stop offset='100%' stop-color='#B0BEC5'/></linearGradient></defs><rect width='300' height='200' fill='url(#rooftopGlow)'/><rect x='0' y='150' width='300' height='50' fill='#455A64'/></svg>",
+              "caption": "Rooftop Glow",
+              "voice": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+              "lottie": null
+            }
+          ]
+        },
+        {
+          "title": "Adventures in the Mountains",
+          "scenes": [
+            {
+              "text": "The rugged mountains stood tall as the sunrise painted the peaks in soft hues, filling the air with wonder.",
+              "image": "<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><defs><linearGradient id='mountainSunrise' x1='0' y1='0' x2='0' y2='1'><stop offset='0%' stop-color='#FFCDD2'/><stop offset='100%' stop-color='#E57373'/></linearGradient></defs><rect width='300' height='200' fill='url(#mountainSunrise)'/><polygon points='50,150 100,50 150,150' fill='#8D6E63'/></svg>",
+              "caption": "Mountain Sunrise",
+              "voice": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+            },
+            {
+              "text": "A winding trail beckoned, leading into the heart of the mountains where nature whispered its secrets.",
+              "image": "<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><defs><linearGradient id='mountainTrail' x1='0' y1='0' x2='0' y2='1'><stop offset='0%' stop-color='#E0F7FA'/><stop offset='100%' stop-color='#B2EBF2'/></linearGradient></defs><rect width='300' height='200' fill='url(#mountainTrail)'/><path d='M30,200 Q150,100 270,200' stroke='#795548' stroke-width='8' fill='none' stroke-linecap='round'/></svg>",
+              "caption": "Mountain Trail",
+              "voice": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+              "lottie": null
+            },
+            {
+              "text": "At the peak, a serene silence reigned as snow gently blanketed the rugged terrain, offering a moment of calm majesty.",
+              "image": "<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><defs><linearGradient id='snowGradient' x1='0' y1='0' x2='0' y2='1'><stop offset='0%' stop-color='#E1F5FE'/><stop offset='100%' stop-color='#B3E5FC'/></linearGradient></defs><rect width='300' height='200' fill='url(#snowGradient)'/><polygon points='100,180 150,80 200,180' fill='#ECEFF1'/></svg>",
+              "caption": "Summit Silence",
+              "voice": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+              "lottie": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "stories": [
+        {
+          "title": "The Magic Garden",
+          "scenes": [
+            {
+              "text": "In a secret garden, flowers sang soft melodies and vibrant colors filled the air like a gentle symphony.",
+              "image": "<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><rect width='300' height='200' fill='#D1C4E9'/><text x='50%' y='50%' fill='#4A148C' font-size='16' dominant-baseline='middle' text-anchor='middle'>Garden Scene 1</text></svg>",
+              "caption": "Melody of Flowers",
+              "voice": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+            },
+            {
+              "text": "Butterflies danced lazily as the gentle breeze carried the scent of blooming magic, inviting curious hearts to explore.",
+              "image": "<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><rect width='300' height='200' fill='#D1C4E9'/><text x='50%' y='50%' fill='#4A148C' font-size='16' dominant-baseline='middle' text-anchor='middle'>Garden Scene 2</text></svg>",
+              "caption": "Dancing Butterflies",
+              "voice": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+            },
+            {
+              "text": "At the heart of the garden, ancient trees whispered secrets of nature’s timeless magic.",
+              "image": "<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><rect width='300' height='200' fill='#D1C4E9'/><text x='50%' y='50%' fill='#4A148C' font-size='16' dominant-baseline='middle' text-anchor='middle'>Garden Scene 3</text></svg>",
+              "caption": "Whispers of Nature",
+              "voice": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+            }
+          ]
+        },
+        {
+          "title": "The Rainbow's Secret",
+          "scenes": [
+            {
+              "text": "A vibrant rainbow appeared in the sky, its colors telling a story of hope and hidden wonders.",
+              "image": "<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><rect width='300' height='200' fill='#FFECB3'/><text x='50%' y='50%' fill='#FF6F00' font-size='16' dominant-baseline='middle' text-anchor='middle'>Rainbow Scene 1</text></svg>",
+              "caption": "Rainbow Arches",
+              "voice": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+            },
+            {
+              "text": "Its brilliant colors whispered secrets of far-off lands and magical treasures awaiting discovery.",
+              "image": "<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><rect width='300' height='200' fill='#FFECB3'/><text x='50%' y='50%' fill='#FF6F00' font-size='16' dominant-baseline='middle' text-anchor='middle'>Rainbow Scene 2</text></svg>",
+              "caption": "Secrets of Color",
+              "voice": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+            },
+            {
+              "text": "At its end, the rainbow promised a treasure trove of smiles and gentle surprises.",
+              "image": "<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><rect width='300' height='200' fill='#FFECB3'/><text x='50%' y='50%' fill='#FF6F00' font-size='16' dominant-baseline='middle' text-anchor='middle'>Rainbow Scene 3</text></svg>",
+              "caption": "Treasure of Smiles",
+              "voice": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+            }
+          ]
+        },
+        {
+          "title": "The Curious Cloud",
+          "scenes": [
+            {
+              "text": "A playful cloud drifted lazily across a bright sky, forming curious shapes that sparked giggles among onlookers.",
+              "image": "<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><rect width='300' height='200' fill='#B3E5FC'/><text x='50%' y='50%' fill='#0277BD' font-size='16' dominant-baseline='middle' text-anchor='middle'>Cloud Scene 1</text></svg>",
+              "caption": "Playful Cloud",
+              "voice": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+            },
+            {
+              "text": "Its ever-changing form invited children to imagine fantastical creatures and dreamy adventures.",
+              "image": "<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><rect width='300' height='200' fill='#B3E5FC'/><text x='50%' y='50%' fill='#0277BD' font-size='16' dominant-baseline='middle' text-anchor='middle'>Cloud Scene 2</text></svg>",
+              "caption": "Dreamy Shapes",
+              "voice": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+              "lottie": null
+            },
+            {
+              "text": "The gentle wonder of the cloud filled the day with quiet dreams and soft smiles.",
+              "image": "<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><rect width='300' height='200' fill='#B3E5FC'/><text x='50%' y='50%' fill='#0277BD' font-size='16' dominant-baseline='middle' text-anchor='middle'>Cloud Scene 3</text></svg>",
+              "caption": "Quiet Dreams",
+              "voice": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+              "lottie": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "stories": [
+        {
+          "title": "The Adventure of the Friendly Dragon",
+          "scenes": [
+            {
+              "text": "A kind dragon soared over a peaceful village, its gentle eyes and warm smile inviting everyone to a day of fun.",
+              "image": "<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><rect width='300' height='200' fill='#FFE082'/><text x='50%' y='50%' fill='#F57F17' font-size='16' dominant-baseline='middle' text-anchor='middle'>Dragon Scene 1</text></svg>",
+              "caption": "Friendly Dragon",
+              "voice": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+            },
+            {
+              "text": "The dragon played with children in the village square, sharing stories of ancient magic and secret valleys.",
+              "image": "<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><rect width='300' height='200' fill='#FFE082'/><text x='50%' y='50%' fill='#F57F17' font-size='16' dominant-baseline='middle' text-anchor='middle'>Dragon Scene 2</text></svg>",
+              "caption": "Village Play",
+              "voice": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+              "lottie": null
+            },
+            {
+              "text": "Together they discovered a hidden valley filled with laughter and friendship—a magical place where every heart found its home.",
+              "image": "<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><rect width='300' height='200' fill='#FFE082'/><text x='50%' y='50%' fill='#F57F17' font-size='16' dominant-baseline='middle' text-anchor='middle'>Dragon Scene 3</text></svg>",
+              "caption": "Valley of Friendship",
+              "voice": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+              "lottie": null
+            }
+          ]
+        },
+        {
+          "title": "The Enchanted Forest",
+          "scenes": [
+            {
+              "text": "Deep within the enchanted forest, magic sparkled in every leaf and every whisper of the wind was filled with wonder.",
+              "image": "<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><rect width='300' height='200' fill='#C5E1A5'/><text x='50%' y='50%' fill='#33691E' font-size='16' dominant-baseline='middle' text-anchor='middle'>Forest Scene 1</text></svg>",
+              "caption": "Forest Magic",
+              "voice": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+            },
+            {
+              "text": "Mystical creatures roamed gently, guiding lost travelers and sharing ancient stories of the forest's heart.",
+              "image": "<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><rect width='300' height='200' fill='#C5E1A5'/><text x='50%' y='50%' fill='#33691E' font-size='16' dominant-baseline='middle' text-anchor='middle'>Forest Scene 2</text></svg>",
+              "caption": "Mystical Creatures",
+              "voice": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+              "lottie": null
+            },
+            {
+              "text": "The forest offered a haven of calm and wonder—a secret retreat where every step led to gentle surprises.",
+              "image": "<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><rect width='300' height='200' fill='#C5E1A5'/><text x='50%' y='50%' fill='#33691E' font-size='16' dominant-baseline='middle' text-anchor='middle'>Forest Scene 3</text></svg>",
+              "caption": "Secret Retreat",
+              "voice": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+              "lottie": null
+            }
+          ]
+        },
+        {
+          "title": "The Mysterious Island",
+          "scenes": [
+            {
+              "text": "A small boat carried curious children to a mysterious island where friendly animals and hidden secrets awaited.",
+              "image": "<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><rect width='300' height='200' fill='#B3E5FC'/><text x='50%' y='50%' fill='#01579B' font-size='16' dominant-baseline='middle' text-anchor='middle'>Island Scene 1</text></svg>",
+              "caption": "Mysterious Arrival",
+              "voice": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+            },
+            {
+              "text": "The island revealed gentle puzzles and friendly creatures that helped the children discover its many secrets.",
+              "image": "<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><rect width='300' height='200' fill='#B3E5FC'/><text x='50%' y='50%' fill='#01579B' font-size='16' dominant-baseline='middle' text-anchor='middle'>Island Scene 2</text></svg>",
+              "caption": "Friendly Secrets",
+              "voice": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+              "lottie": null
+            },
+            {
+              "text": "As the sun set, the island glowed with an otherworldly charm, teaching the children that adventure can be gentle and full of wonder.",
+              "image": "<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><rect width='300' height='200' fill='#B3E5FC'/><text x='50%' y='50%' fill='#01579B' font-size='16' dominant-baseline='middle' text-anchor='middle'>Island Scene 3</text></svg>",
+              "caption": "Sunset Charm",
+              "voice": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+              "lottie": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

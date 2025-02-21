@@ -1,0 +1,72 @@
+/* frontend/src/pages/leaderboard.css */
+.leaderboard-wrapper {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: "Poppins", sans-serif;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .leaderboard-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .leaderboard-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #4a90e2;
+  }
+  
+  .leaderboard-header p {
+    font-size: 1.1rem;
+    color: #555;
+  }
+  
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  .leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+  }
+  
+  .leaderboard-table th,
+  .leaderboard-table td {
+    padding: 14px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .leaderboard-table th {
+    background-color: #4a90e2;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .leaderboard-table tbody tr:nth-child(even) {
+    background-color: #f7f7f7;
+  }
+  
+  .leaderboard-table tbody tr:hover {
+    background-color: #eef6fd;
+  }
+  
+  .error-message {
+    color: red;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .leaderboard-footer {
+    text-align: center;
+    margin-top: 30px;
+    color: #888;
+    font-size: 0.9rem;
+  }

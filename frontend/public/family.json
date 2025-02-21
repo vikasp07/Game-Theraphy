@@ -1,0 +1,110 @@
+[
+  {
+    "_id": "67ae26129110a446138f1f0a",
+    "user": "67adee25f56d3eefd468969d",
+    "name": "Abba",
+    "relation": "Great-Grandfather",
+    "imageUrl": "",
+    "createdAt": "2025-02-13T17:04:18.231+00:00",
+    "__v": 0
+  },
+  {
+    "_id": "67ae26129110a446138f1f0b",
+    "user": "67adee25f56d3eefd468969d",
+    "name": "Gita",
+    "relation": "Great-Grandmother",
+    "imageUrl": "",
+    "createdAt": "2025-02-13T17:05:18.231+00:00",
+    "__v": 0
+  },
+  {
+    "_id": "67ae26129110a446138f1f0c",
+    "user": "67adee25f56d3eefd468969d",
+    "name": "Mohan",
+    "relation": "Grandfather",
+    "imageUrl": "",
+    "createdAt": "2025-02-13T17:06:18.231+00:00",
+    "__v": 0
+  },
+  {
+    "_id": "67ae26129110a446138f1f0d",
+    "user": "67adee25f56d3eefd468969d",
+    "name": "Kiran",
+    "relation": "Grandmother",
+    "imageUrl": "",
+    "createdAt": "2025-02-13T17:07:18.231+00:00",
+    "__v": 0
+  },
+  {
+    "_id": "67ae26129110a446138f1f0e",
+    "user": "67adee25f56d3eefd468969d",
+    "name": "Rajesh",
+    "relation": "Father",
+    "imageUrl": "",
+    "createdAt": "2025-02-13T17:08:18.231+00:00",
+    "__v": 0
+  },
+  {
+    "_id": "67ae26129110a446138f1f0f",
+    "user": "67adee25f56d3eefd468969d",
+    "name": "Sita",
+    "relation": "Mother",
+    "imageUrl": "",
+    "createdAt": "2025-02-13T17:09:18.231+00:00",
+    "__v": 0
+  },
+  {
+    "_id": "67ae26129110a446138f1f10",
+    "user": "67adee25f56d3eefd468969d",
+    "name": "Ravi",
+    "relation": "Child",
+    "imageUrl": "",
+    "createdAt": "2025-02-13T17:10:18.231+00:00",
+    "__v": 0
+  },
+  {
+    "_id": "67ae26129110a446138f1f11",
+    "user": "67adee25f56d3eefd468969d",
+    "name": "Rani",
+    "relation": "Sibling",
+    "imageUrl": "",
+    "createdAt": "2025-02-13T17:11:18.231+00:00",
+    "__v": 0
+  },
+  {
+    "_id": "67ae26129110a446138f1f12",
+    "user": "67adee25f56d3eefd468969d",
+    "name": "Kishore",
+    "relation": "Paternal Uncle",
+    "imageUrl": "",
+    "createdAt": "2025-02-13T17:12:18.231+00:00",
+    "__v": 0
+  },
+  {
+    "_id": "67ae26129110a446138f1f13",
+    "user": "67adee25f56d3eefd468969d",
+    "name": "Shanti",
+    "relation": "Maternal Aunt",
+    "imageUrl": "",
+    "createdAt": "2025-02-13T17:13:18.231+00:00",
+    "__v": 0
+  },
+  {
+    "_id": "67ae26129110a446138f1f14",
+    "user": "67adee25f56d3eefd468969d",
+    "name": "Amit",
+    "relation": "First Cousin",
+    "imageUrl": "",
+    "createdAt": "2025-02-13T17:14:18.231+00:00",
+    "__v": 0
+  },
+  {
+    "_id": "67ae26129110a446138f1f15",
+    "user": "67adee25f56d3eefd468969d",
+    "name": "Neha",
+    "relation": "Baby Cousin",
+    "imageUrl": "",
+    "createdAt": "2025-02-13T17:15:18.231+00:00",
+    "__v": 0
+  }
+]

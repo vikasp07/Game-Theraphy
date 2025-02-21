@@ -1,0 +1,488 @@
+/* Universal Box-Sizing */
+html {
+  background-color: linear-gradient(135deg, #d0e2ec, #79d6f2);
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reset Body Margins/Padding */
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--secondary-gradient);
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+  overflow-x: hidden;
+  /* Prevent horizontal scroll */
+}
+
+/* ========== Root Variables for Theme ========== */
+:root {
+  --primary-gradient: linear-gradient(135deg, #c95bf8, #6a11cb);
+  --secondary-gradient: linear-gradient(135deg, #d0e2ec, #79d6f2);
+  --bg-color:linear-gradient(135deg, #d0e2ec, #79d6f2);;
+  --text-color: #333;
+  --accent-color: #ffdd57;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* ========== Navbar ========== */
+.navbar {
+  background: var(--primary-gradient);
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100vw;
+}
+
+.navbar .logo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.navbar .menu {
+  margin-left: auto;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.navbar .menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar .menu a:hover {
+  color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+.profile-dropdown {
+  position: relative;
+  margin-left: 20px;
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  box-shadow: 0 3px 5px var(--shadow-color);
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 50px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  min-width: 200px;
+  animation: fadeIn 0.3s ease-out;
+  z-index: 101;
+}
+
+.dropdown-menu .dropdown-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  background: var(--primary-gradient);
+  color: white;
+}
+
+.dropdown-menu .dropdown-header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-menu .dropdown-user-info p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: #eee;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background: #f4f4f4;
+}
+
+/* ========== Dashboard Container ========== */
+.dashboard-container {
+  width: 100vw;
+  padding: 20px;
+  background-color: linear-gradient(135deg, #d0e2ec, #79d6f2);
+  box-shadow: 0 5px 10px var(--shadow-color);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ========== Main Content ========== */
+.main-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 0 auto;
+}
+
+/* ========== Game Section ========== */
+.game-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.game-section h2 {
+  font-size: 2.1rem;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: flex-end;
+  color: var(--primary-gradient);
+}
+
+/* ========== Game Grid and Cards ========== */
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 10px;
+}
+
+.game-card {
+  background: var(--secondary-gradient);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px var(--shadow-color);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card img {
+  width: 100%;
+  height: 150px;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.game-card h4 {
+  font-size: 1.1rem;
+  margin: 10px 0;
+  color: var(--primary-gradient);
+}
+
+.game-card p {
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.game-card button {
+  background: var(--primary-gradient);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.game-card button:hover {
+  background-color: var(--accent-color);
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px var(--shadow-color);
+}
+
+/* ========== Bot Section ========== */
+.bot-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background: var(--secondary-gradient);
+  border-radius: 10px;
+  box-shadow: 0 3px 6px var(--shadow-color);
+  text-align: center;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.bot-section h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: var(--primary-gradient);
+}
+
+.bot-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 10px;
+}
+
+.bot-card {
+  background: var(--bg-color);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bot-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px var(--shadow-color);
+}
+
+.bot-card img {
+  width: 100%;
+  height: 150px;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center; /* Ensures the image is centered */
+  display: block; /* Removes any unwanted inline spacing */
+  margin-bottom: 10px;
+}
+
+.bot-card h4 {
+  font-size: 1.1rem;
+  margin: 10px 0;
+  color: var(--primary-gradient);
+}
+
+.bot-card p {
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.bot-card button {
+  background: var(--primary-gradient);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.bot-card button:hover {
+  background-color: var(--accent-color);
+}
+
+/* ========== Progress Section ========== */
+.progress-section {
+  width: 100%;
+  max-width: 1200px;
+  background: var(--secondary-gradient);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px var(--shadow-color);
+  text-align: center;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.progress-section h2 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: var(--primary-gradient);
+}
+
+/* ========== Chatroom Card ========== */
+.chatroom-card {
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background: var(--secondary-gradient);
+  border-radius: 10px;
+  box-shadow: 0 3px 6px var(--shadow-color);
+  text-align: center;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.chatroom-card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: var(--primary-gradient);
+}
+
+.chatroom-card p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.chatroom-card button {
+  background: var(--primary-gradient);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.chatroom-card button:hover {
+  background-color: var(--accent-color);
+}
+
+/* ========== Footer ========== */
+.footer {
+  background: var(--primary-gradient);
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  width: 100vw;
+}
+
+/* ========== Animations ========== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/* Add these new styles to your existing CSS file */
+
+/* Communication Section */
+.communication-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.communication-section h2 {
+  font-size: 2.1rem;
+  margin-bottom: 15px;
+  color: var(--primary-gradient);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 10px;
+}
+
+.feature-card {
+  background: var(--bg-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px var(--shadow-color);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px var(--shadow-color);
+}
+
+.card-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.feature-card h4 {
+  font-size: 1.1rem;
+  margin: 10px 0;
+  color: var(--primary-gradient);
+}
+
+.feature-card p {
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
+
+.feature-card button {
+  background: var(--primary-gradient);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.feature-card button:hover {
+  background-color: var(--accent-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .communication-section h2 {
+    font-size: 1.8rem;
+  }
+}
