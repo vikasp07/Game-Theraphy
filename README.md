@@ -1,5 +1,5 @@
-# Game Therapy
 
+# 🎮 GameTherapy: Interactive Mental Health Gaming Platform
 Welcome to **Game Therapy**, an adaptive gaming platform designed to support individuals with cognitive, social, and emotional challenges. Our solution combines innovative games, real-time AI support, and gesture-based controls to create a personalized therapeutic experience.
 
 ---
@@ -7,10 +7,14 @@ Welcome to **Game Therapy**, an adaptive gaming platform designed to support ind
 ## What is Game Therapy?
 
 Game Therapy addresses the unique needs of people with mental challenges by providing:
-- **Adaptive Gameplay:** Games that adjust in real time based on user performance.
-- **Gesture-Based Controls:** Using Arduino to capture hand movements, making the experience intuitive.
-- **AI-Powered Support:** An integrated chatbot therapist offers personalized assistance.
-- **Guardian Insights:** A comprehensive dashboard allows guardians to track progress and engage with interactive analytics.
+## ✨ Features
+
+✅ **Family Tree Game**: Helps dyslexic users recognize names using Arduino-based hand gestures.  
+✅ **Astra Maze**: Interactive ball maze controlled via motion tracking.  
+✅ **AI Therapy Chatbot**: Provides emotional support using Llama and LLM-based AI.  
+✅ **Guardian Dashboard**: Tracks player progress with visual charts.  
+✅ **Community Support**: Users can chat with others in a safe environment.  
+
 
 ---
 
@@ -78,7 +82,7 @@ Watch our detailed walkthrough of Game Therapy:
 
 ---
 
-## Installation and Setup
+## 🚀 Installation and Setup
 
 1. **Clone the Repository:**
    ```bash
