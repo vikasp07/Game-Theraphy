@@ -59,7 +59,7 @@ const DoctorDashboard = () => {
       const res = await axios.post(
         "http://localhost:5000/api/doctor/seminars",
         newSeminar,
-        { headers: { "x-auth-token": token } },
+        { headers: { "x-auth-token": token } }
       );
 
       setSeminars([...seminars, res.data.seminar]);
