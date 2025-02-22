@@ -25,18 +25,25 @@ const EDiary = () => {
     formData.append("voiceNote", voiceNote);
 
     try {
-      const res = await axios.post("https://game-theraphy.onrender.com/api/ediary", formData, {
-        headers: {
-          "x-auth-token": token,
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      const res = await axios.post(
+        "https://game-theraphy-backend.onrender.com/api/ediary",
+        formData,
+        {
+          headers: {
+            "x-auth-token": token,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
       setMessage(res.data.msg);
       // Optionally clear form fields
       setTitle("");
       setVoiceNote(null);
     } catch (error) {
-      console.error("Error creating e-diary entry:", error.response?.data || error.message);
+      console.error(
+        "Error creating e-diary entry:",
+        error.response?.data || error.message
+      );
       setMessage("Failed to create e-diary entry.");
     }
   };
@@ -48,19 +55,19 @@ const EDiary = () => {
       <form onSubmit={handleSubmit} className="ediary-form">
         <label>
           Title:
-          <input 
-            type="text" 
-            value={title} 
-            onChange={(e) => setTitle(e.target.value)} 
+          <input
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
             required
           />
         </label>
         <label>
           Voice Note (MP3):
-          <input 
-            type="file" 
-            accept="audio/mpeg, audio/mp3, audio/*" 
-            onChange={handleFileChange} 
+          <input
+            type="file"
+            accept="audio/mpeg, audio/mp3, audio/*"
+            onChange={handleFileChange}
             required
           />
         </label>
