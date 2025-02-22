@@ -25,7 +25,7 @@ const EDiary = () => {
     formData.append("voiceNote", voiceNote);
 
     try {
-      const res = await axios.post("http://localhost:5000/api/ediary", formData, {
+      const res = await axios.post("https://game-theraphy.onrender.com/api/ediary", formData, {
         headers: {
           "x-auth-token": token,
           "Content-Type": "multipart/form-data",
