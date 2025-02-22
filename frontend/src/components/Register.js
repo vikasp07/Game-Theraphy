@@ -44,7 +44,7 @@
 
 // //       // Registration API call
 // //       const res = await axios.post(
-// //         "http://localhost:5000/api/auth/register",
+// //         "https://game-theraphy-backend.onrender.com/api/auth/register",
 // //         requestBody,
 // //         { headers: { "Content-Type": "application/json" } }
 // //       );
@@ -52,7 +52,7 @@
 // //       console.log("Request Body:", requestBody);
 // //       // Use the returned token to create a new profile detail record
 // //       await axios.post(
-// //         "http://localhost:5000/api/detail",
+// //         "https://game-theraphy-backend.onrender.com/api/detail",
 // //         { name: requestBody.name, email: requestBody.email },
 // //         { headers: { "x-auth-token": res.data.token, "Content-Type": "application/json" } }
 // //       );
@@ -222,14 +222,14 @@
 
 //       // Registration API call
 //       const res = await axios.post(
-//         "http://localhost:5000/api/auth/register",
+//         "https://game-theraphy-backend.onrender.com/api/auth/register",
 //         requestBody,
 //         { headers: { "Content-Type": "application/json" } }
 //       );
 
 //       // Create a new profile record
 //       await axios.post(
-//         "http://localhost:5000/api/detail",
+//         "https://game-theraphy-backend.onrender.com/api/detail",
 //         { name: requestBody.name, email: requestBody.email },
 //         {
 //           headers: {
@@ -370,13 +370,13 @@ const Register = () => {
       }
 
       const res = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        "https://game-theraphy-backend.onrender.com/api/auth/register",
         requestBody,
         { headers: { "Content-Type": "application/json" } }
       );
 
       await axios.post(
-        "http://localhost:5000/api/detail",
+        "https://game-theraphy-backend.onrender.com/api/detail",
         { name: requestBody.name, email: requestBody.email },
         {
           headers: {

@@ -1,9 +1,9 @@
 // src/components/games/StoryGame.js
-import React, { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
-import { gsap } from 'gsap';
-import Sortable from 'sortablejs';
-import './story-game.css'; // Updated CSS
+import React, { useState, useEffect, useRef } from "react";
+import axios from "axios";
+import { gsap } from "gsap";
+import Sortable from "sortablejs";
+import "./story-game.css"; // Updated CSS
 
 const StoryGame = () => {
   // States for levels, story scenes, session, etc.
@@ -18,7 +18,7 @@ const StoryGame = () => {
   const [mistakes, setMistakes] = useState(0);
 
   // Session and score variables
-  const [sessionId, setSessionId] = useState('');
+  const [sessionId, setSessionId] = useState("");
   const [currentScore, setCurrentScore] = useState(100);
   const [accumulatedTime, setAccumulatedTime] = useState(0);
   const [timeElapsed, setTimeElapsed] = useState(30);
@@ -48,9 +48,12 @@ const StoryGame = () => {
     // End game if level exceeds available levels.
     if (level > levelsData.levels.length) {
       console.log("Game completed! You've won!");
-      if (selectionContainerRef.current) selectionContainerRef.current.style.display = "none";
-      if (storyContainerRef.current) storyContainerRef.current.style.display = "none";
-      if (cardContainerRef.current) cardContainerRef.current.style.display = "none";
+      if (selectionContainerRef.current)
+        selectionContainerRef.current.style.display = "none";
+      if (storyContainerRef.current)
+        storyContainerRef.current.style.display = "none";
+      if (cardContainerRef.current)
+        cardContainerRef.current.style.display = "none";
       if (restartContainerRef.current) {
         restartContainerRef.current.innerHTML =
           "<h2>Congratulations, you've won!</h2><button id='restart-btn'>Play Again</button>";
@@ -60,8 +63,10 @@ const StoryGame = () => {
       return;
     }
     console.log(`Loading level ${level}`);
-    if (selectionContainerRef.current) selectionContainerRef.current.style.display = "block";
-    if (storyContainerRef.current) storyContainerRef.current.style.display = "none";
+    if (selectionContainerRef.current)
+      selectionContainerRef.current.style.display = "block";
+    if (storyContainerRef.current)
+      storyContainerRef.current.style.display = "none";
     populateStorySelection(level);
   };
 
@@ -71,20 +76,20 @@ const StoryGame = () => {
       console.log("Session already started:", sessionId);
       return;
     }
-    console.log('Starting session for level:', selectedLevel);
+    console.log("Starting session for level:", selectedLevel);
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/games/start",
+        "https://game-theraphy-backend.onrender.com/api/games/start",
         {
           gameId: "story_game", // fixed gameId for Story Game
           gameName: "Story Game",
-          startLevel: selectedLevel
+          startLevel: selectedLevel,
         },
         {
           headers: {
             "x-auth-token": localStorage.getItem("token"),
-            "Content-Type": "application/json"
-          }
+            "Content-Type": "application/json",
+          },
         }
       );
       setSessionId(response.data.sessionId);
@@ -96,7 +101,7 @@ const StoryGame = () => {
   };
 
   const updateProgressToBackend = async (completedLevel) => {
-    console.log('Updating progress for level:', completedLevel);
+    console.log("Updating progress for level:", completedLevel);
     try {
       const totalTime = accumulatedTime + timeElapsed;
       const totalMistakes = accumulatedMistakes + mistakes;
@@ -107,17 +112,17 @@ const StoryGame = () => {
         completed: true,
         mistakes: totalMistakes,
         endLevel: completedLevel,
-        totalTime: `${totalTime}s`
+        totalTime: `${totalTime}s`,
       };
       console.log("Posting progress data:", payload);
       const response = await axios.post(
-        "http://localhost:5000/api/games/progress",
+        "https://game-theraphy-backend.onrender.com/api/games/progress",
         payload,
         {
           headers: {
             "x-auth-token": localStorage.getItem("token"),
-            "Content-Type": "application/json"
-          }
+            "Content-Type": "application/json",
+          },
         }
       );
       console.log("Progress updated successfully:", response.data);
@@ -128,26 +133,33 @@ const StoryGame = () => {
 
   /* --- Utility: Shuffle Function --- */
   const shuffle = (array) => {
-    let currentIndex = array.length, randomIndex;
+    let currentIndex = array.length,
+      randomIndex;
     while (currentIndex !== 0) {
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
-      [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ];
     }
-    console.log('Shuffled array:', array);
+    console.log("Shuffled array:", array);
     return array;
   };
 
   /* --- Display Scene --- */
   const displayScene = (index) => {
-    console.log(`Displaying scene ${index + 1} of ${storyData.length}.`, storyData);
+    console.log(
+      `Displaying scene ${index + 1} of ${storyData.length}.`,
+      storyData
+    );
     if (!storyData || storyData.length === 0) {
       console.error("storyData is empty. Cannot display scene.");
       return;
     }
     const scene = storyData[index];
     if (!scene) {
-      console.warn('Scene not found at index:', index);
+      console.warn("Scene not found at index:", index);
       return;
     }
     // Ensure the story container is visible
@@ -158,13 +170,16 @@ const StoryGame = () => {
     const tl = gsap.timeline({
       onComplete: () => {
         console.log("Transition complete for scene:", index + 1);
-      }
+      },
     });
-    tl.to([textAreaRef.current, imageAreaRef.current, lottieContainerRef.current], {
-      duration: 0.5,
-      opacity: 0,
-      ease: "power2.inOut"
-    })
+    tl.to(
+      [textAreaRef.current, imageAreaRef.current, lottieContainerRef.current],
+      {
+        duration: 0.5,
+        opacity: 0,
+        ease: "power2.inOut",
+      }
+    )
       .add(() => {
         if (textAreaRef.current) textAreaRef.current.innerText = scene.text;
         if (imageAreaRef.current) {
@@ -177,11 +192,14 @@ const StoryGame = () => {
           }
         }
       })
-      .to([textAreaRef.current, imageAreaRef.current, lottieContainerRef.current], {
-        duration: 0.5,
-        opacity: 1,
-        ease: "power2.inOut"
-      });
+      .to(
+        [textAreaRef.current, imageAreaRef.current, lottieContainerRef.current],
+        {
+          duration: 0.5,
+          opacity: 1,
+          ease: "power2.inOut",
+        }
+      );
   };
 
   /* --- Card Puzzle --- */
@@ -197,10 +215,10 @@ const StoryGame = () => {
     const generatedIncidents = storyData.map((scene, index) => ({
       id: index + 1,
       caption: scene.caption,
-      image: scene.image
+      image: scene.image,
     }));
     const shuffled = shuffle([...generatedIncidents]);
-    shuffled.forEach(item => {
+    shuffled.forEach((item) => {
       const card = document.createElement("div");
       card.className = "card";
       card.setAttribute("data-id", item.id);
@@ -216,7 +234,9 @@ const StoryGame = () => {
       cardContainerRef.current.style.display = "block";
       cardContainerRef.current.style.opacity = "1";
     }
-    sortableInstanceRef.current = Sortable.create(cardsDivRef.current, { animation: 150 });
+    sortableInstanceRef.current = Sortable.create(cardsDivRef.current, {
+      animation: 150,
+    });
     console.log("Card puzzle initialized.");
   };
 
@@ -224,7 +244,7 @@ const StoryGame = () => {
   const handleNextScene = async () => {
     console.log("Next scene button clicked.");
     if (currentScene < storyData.length - 1) {
-      setCurrentScene(prev => {
+      setCurrentScene((prev) => {
         const newScene = prev + 1;
         displayScene(newScene);
         return newScene;
@@ -241,7 +261,7 @@ const StoryGame = () => {
           gsap.from(cardContainerRef.current, { duration: 0.5, opacity: 0 });
           setTimer(0);
           setPuzzleStarted(true);
-        }
+        },
       });
     }
   };
@@ -249,7 +269,7 @@ const StoryGame = () => {
   const handleBackScene = () => {
     console.log("Back scene button clicked.");
     if (currentScene > 0) {
-      setCurrentScene(prev => {
+      setCurrentScene((prev) => {
         const newScene = prev - 1;
         displayScene(newScene);
         return newScene;
@@ -267,9 +287,16 @@ const StoryGame = () => {
   const handleCheckOrder = async () => {
     console.log("Checking order of puzzle cards.");
     const cards = Array.from(cardsDivRef.current.children);
-    const currentOrder = cards.map(card => parseInt(card.getAttribute("data-id")));
+    const currentOrder = cards.map((card) =>
+      parseInt(card.getAttribute("data-id"))
+    );
     const correctOrder = storyData.map((scene, index) => index + 1);
-    console.log("Current order:", currentOrder, "Expected order:", correctOrder);
+    console.log(
+      "Current order:",
+      currentOrder,
+      "Expected order:",
+      correctOrder
+    );
     if (JSON.stringify(currentOrder) === JSON.stringify(correctOrder)) {
       console.log("Puzzle solved correctly!");
       await updateProgressToBackend(selectedLevel);
@@ -279,7 +306,7 @@ const StoryGame = () => {
         onComplete: () => {
           cardContainerRef.current.style.display = "none";
           // Advance to next level or show win message.
-          setSelectedLevel(prevLevel => {
+          setSelectedLevel((prevLevel) => {
             const nextLevel = prevLevel + 1;
             if (levelsData && nextLevel <= levelsData.levels.length) {
               // Reset state for new level
@@ -299,15 +326,18 @@ const StoryGame = () => {
                 restartContainerRef.current.innerHTML =
                   "<h2>Congratulations, you've won!</h2><button id='restart-btn'>Play Again</button>";
                 restartContainerRef.current.style.display = "block";
-                if (selectionContainerRef.current) selectionContainerRef.current.style.display = "none";
-                if (storyContainerRef.current) storyContainerRef.current.style.display = "none";
-                if (cardContainerRef.current) cardContainerRef.current.style.display = "none";
+                if (selectionContainerRef.current)
+                  selectionContainerRef.current.style.display = "none";
+                if (storyContainerRef.current)
+                  storyContainerRef.current.style.display = "none";
+                if (cardContainerRef.current)
+                  cardContainerRef.current.style.display = "none";
                 document.getElementById("restart-btn").onclick = handleRestart;
               }
             }
             return nextLevel;
           });
-        }
+        },
       });
     } else {
       console.warn("Puzzle order incorrect.");
@@ -320,7 +350,7 @@ const StoryGame = () => {
   const handleRestart = () => {
     console.log("Restarting game to level 1.");
     localStorage.removeItem("storyGameSessionId");
-    setSessionId('');
+    setSessionId("");
     if (restartContainerRef.current) {
       restartContainerRef.current.style.display = "none";
       restartContainerRef.current.innerHTML = "";
@@ -337,7 +367,10 @@ const StoryGame = () => {
 
   // Start game by displaying scene 1
   const handleGameStart = () => {
-    console.log("handleGameStart called. Attempting to display scene 1 for level", selectedLevel);
+    console.log(
+      "handleGameStart called. Attempting to display scene 1 for level",
+      selectedLevel
+    );
     try {
       setCurrentScene(0);
       displayScene(0);
@@ -352,7 +385,7 @@ const StoryGame = () => {
     let timerInterval;
     if (puzzleStarted) {
       timerInterval = setInterval(() => {
-        setTimer(prev => prev + 1);
+        setTimer((prev) => prev + 1);
       }, 1000);
     }
     return () => clearInterval(timerInterval);
@@ -365,7 +398,7 @@ const StoryGame = () => {
       return;
     }
     console.log("Populating story selection for level:", level);
-    const levelObj = levelsData.levels.find(l => l.level === level);
+    const levelObj = levelsData.levels.find((l) => l.level === level);
     if (!levelObj) {
       console.warn("Level object not found for level:", level);
       return;
@@ -407,19 +440,23 @@ const StoryGame = () => {
   /* --- Fetch Full Story Data on Selection --- */
   const fetchStoryDetails = async (level, storyIndex) => {
     try {
-      console.log(`Fetching story details for level ${level}, story index ${storyIndex}`);
-      const response = await fetch('/story-game/stories.json');
+      console.log(
+        `Fetching story details for level ${level}, story index ${storyIndex}`
+      );
+      const response = await fetch("/story-game/stories.json");
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
       const data = await response.json();
-      const levelObj = data.levels.find(l => l.level === level);
+      const levelObj = data.levels.find((l) => l.level === level);
       if (!levelObj) {
         throw new Error(`Level ${level} not found`);
       }
       const storyObj = levelObj.stories[storyIndex];
       if (!storyObj) {
-        throw new Error(`Story at index ${storyIndex} not found for level ${level}`);
+        throw new Error(
+          `Story at index ${storyIndex} not found for level ${level}`
+        );
       }
       console.log("Fetched story details:", storyObj);
       return storyObj;
@@ -432,19 +469,19 @@ const StoryGame = () => {
   /* --- Load stories.json --- */
   useEffect(() => {
     console.log("Fetching stories.json file...");
-    fetch('/story-game/stories.json')
-      .then(response => {
+    fetch("/story-game/stories.json")
+      .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
         return response.json();
       })
-      .then(data => {
+      .then((data) => {
         console.log("stories.json loaded:", data);
         setLevelsData(data);
         setLoading(false);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error("Error loading stories.json:", error);
         setLoading(false);
       });
@@ -482,13 +519,23 @@ const StoryGame = () => {
       </div>
 
       {/* Story Section */}
-      <div id="story-container" ref={storyContainerRef} style={{ display: 'none' }}>
+      <div
+        id="story-container"
+        ref={storyContainerRef}
+        style={{ display: "none" }}
+      >
         <div id="text-area" ref={textAreaRef}></div>
         <div id="image-area" ref={imageAreaRef}></div>
         <div className="btn-group-story">
-          <button id="back-story" onClick={handleBackScene}>Back Scene</button>
-          <button id="next-story" onClick={handleNextScene}>Next Scene</button>
-          <button id="toggle-voice" onClick={handleToggleVoice}>Toggle Voice</button>
+          <button id="back-story" onClick={handleBackScene}>
+            Back Scene
+          </button>
+          <button id="next-story" onClick={handleNextScene}>
+            Next Scene
+          </button>
+          <button id="toggle-voice" onClick={handleToggleVoice}>
+            Toggle Voice
+          </button>
         </div>
         <div id="progress">
           Scene {currentScene + 1} of {storyData.length}
@@ -496,7 +543,11 @@ const StoryGame = () => {
       </div>
 
       {/* Card Puzzle Section */}
-      <div id="card-container" ref={cardContainerRef} style={{ display: 'none' }}>
+      <div
+        id="card-container"
+        ref={cardContainerRef}
+        style={{ display: "none" }}
+      >
         <h3>Arrange the scenes in the correct order:</h3>
         <div id="cards" ref={cardsDivRef}></div>
         <button onClick={handleCheckOrder}>Check Order</button>
@@ -506,7 +557,11 @@ const StoryGame = () => {
       </div>
 
       {/* Restart Container */}
-      <div id="restart-container" ref={restartContainerRef} style={{ display: 'none' }}>
+      <div
+        id="restart-container"
+        ref={restartContainerRef}
+        style={{ display: "none" }}
+      >
         <button onClick={handleRestart}>Play Another Story</button>
       </div>
     </div>

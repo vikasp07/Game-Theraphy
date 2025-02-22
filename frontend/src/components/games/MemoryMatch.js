@@ -32,13 +32,13 @@ const MemoryMatch = () => {
   const [showPreview, setShowPreview] = useState(true);
   const timerRef = useRef(null);
   const hasStartedSession = useRef(false);
-  
+
   const token = localStorage.getItem("token");
 
   const startNewSession = useCallback(async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/games/start",
+        "https://game-theraphy-backend.onrender.com/api/games/start",
         { gameId: "memory_match", gameName: "Memory Match", startLevel },
         {
           headers: {
@@ -50,7 +50,10 @@ const MemoryMatch = () => {
       setSessionId(response.data.sessionId);
       console.log("New session started:", response.data.sessionId);
     } catch (error) {
-      console.error("Error starting session:", error.response?.data || error.message);
+      console.error(
+        "Error starting session:",
+        error.response?.data || error.message
+      );
     }
   }, [token, startLevel]);
 
@@ -123,7 +126,7 @@ const MemoryMatch = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/games/progress",
+        "https://game-theraphy-backend.onrender.com/api/games/progress",
         payload,
         {
           headers: {
@@ -134,7 +137,10 @@ const MemoryMatch = () => {
       );
       console.log("Progress saved successfully:", response.data);
     } catch (error) {
-      console.error("Error saving progress:", error.response?.data || error.message);
+      console.error(
+        "Error saving progress:",
+        error.response?.data || error.message
+      );
     }
   }, [matchedCards, sessionId, token, mistakes, endLevel, timeElapsed]);
 
@@ -192,7 +198,9 @@ const MemoryMatch = () => {
       <p id="mistake-memory">❌ Mistakes: {mistakes}</p>
       <p id="level-memory">🏆 Level: {endLevel}</p>
 
-      {showPreview && <h1 className="countdown">{countdown > 0 ? countdown : "START!"}</h1>}
+      {showPreview && (
+        <h1 className="countdown">{countdown > 0 ? countdown : "START!"}</h1>
+      )}
 
       {gameOver ? (
         <>
@@ -209,13 +217,17 @@ const MemoryMatch = () => {
             <div
               key={card.id}
               className={`mm-card ${
-                showPreview || flippedCards.includes(card) || matchedCards.includes(card.name)
+                showPreview ||
+                flippedCards.includes(card) ||
+                matchedCards.includes(card.name)
                   ? "mm-flipped"
                   : ""
               }`}
               onClick={() => handleCardClick(card)}
             >
-              {showPreview || flippedCards.includes(card) || matchedCards.includes(card.name)
+              {showPreview ||
+              flippedCards.includes(card) ||
+              matchedCards.includes(card.name)
                 ? card.name
                 : "❓"}
             </div>

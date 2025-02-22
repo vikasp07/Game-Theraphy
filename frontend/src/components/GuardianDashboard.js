@@ -11,9 +11,12 @@ const GuardianDashboard = () => {
   // Fetch players and their game details associated with this guardian
   const fetchPlayersGameDetails = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/guardian/players/games", {
-        headers: { "x-auth-token": token },
-      });
+      const res = await axios.get(
+        "https://game-theraphy-backend.onrender.com/api/guardian/players/games",
+        {
+          headers: { "x-auth-token": token },
+        }
+      );
       setPlayersData(res.data);
       setErrorMessage("");
     } catch (error) {

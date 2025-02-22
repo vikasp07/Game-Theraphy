@@ -14,9 +14,12 @@ const Task = () => {
   // Fetch logged-in user's details to get the id
   const fetchUserDetails = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/auth/user", {
-        headers: { "x-auth-token": token },
-      });
+      const res = await axios.get(
+        "https://game-theraphy-backend.onrender.com/api/auth/user",
+        {
+          headers: { "x-auth-token": token },
+        }
+      );
       setUserId(res.data._id);
     } catch (error) {
       console.error(
@@ -30,9 +33,12 @@ const Task = () => {
   // Fetch tasks for the logged-in patient
   const fetchTasks = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/tasks/${userId}`, {
-        headers: { "x-auth-token": token },
-      });
+      const res = await axios.get(
+        `https://game-theraphy-backend.onrender.com/api/tasks/${userId}`,
+        {
+          headers: { "x-auth-token": token },
+        }
+      );
       setTasks(res.data);
       setErrorMessage("");
     } catch (error) {
@@ -48,7 +54,7 @@ const Task = () => {
   const handleMarkCompleted = async (taskId) => {
     try {
       const res = await axios.patch(
-        `http://localhost:5000/api/tasks/status/${taskId}`,
+        `https://game-theraphy-backend.onrender.com/api/tasks/status/${taskId}`,
         { completed: true },
         {
           headers: {

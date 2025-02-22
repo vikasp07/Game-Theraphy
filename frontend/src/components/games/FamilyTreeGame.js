@@ -6,37 +6,187 @@ import "./FamilyTreeGame.css";
 
 // Templates for different difficulty levels
 const easyTreeTemplate = [
-  { id: 1, name: "👴 Grandfather", relation: "Grandfather", position: "top", placed: true },
-  { id: 2, name: "👵 Grandmother", relation: "Grandmother", position: "top", placed: true },
-  { id: 3, name: "👨 Father", relation: "Father", position: "middle", placed: false },
-  { id: 4, name: "👩 Mother", relation: "Mother", position: "middle", placed: false },
-  { id: 5, name: "🧒 You", relation: "Child", position: "bottom", placed: false },
+  {
+    id: 1,
+    name: "👴 Grandfather",
+    relation: "Grandfather",
+    position: "top",
+    placed: true,
+  },
+  {
+    id: 2,
+    name: "👵 Grandmother",
+    relation: "Grandmother",
+    position: "top",
+    placed: true,
+  },
+  {
+    id: 3,
+    name: "👨 Father",
+    relation: "Father",
+    position: "middle",
+    placed: false,
+  },
+  {
+    id: 4,
+    name: "👩 Mother",
+    relation: "Mother",
+    position: "middle",
+    placed: false,
+  },
+  {
+    id: 5,
+    name: "🧒 You",
+    relation: "Child",
+    position: "bottom",
+    placed: false,
+  },
 ];
 
 const mediumTreeTemplate = [
-  { id: 1, name: "👴 Great-Grandfather", relation: "Great-Grandfather", position: "top", placed: true },
-  { id: 2, name: "👵 Great-Grandmother", relation: "Great-Grandmother", position: "top", placed: true },
-  { id: 3, name: "🧓 Grandfather", relation: "Grandfather", position: "upper-middle", placed: false },
-  { id: 4, name: "👩‍🦳 Grandmother", relation: "Grandmother", position: "upper-middle", placed: false },
-  { id: 5, name: "👨 Father", relation: "Father", position: "middle", placed: false },
-  { id: 6, name: "👩 Mother", relation: "Mother", position: "middle", placed: false },
-  { id: 7, name: "🧒 You", relation: "Child", position: "bottom", placed: false },
-  { id: 8, name: "👧 Sibling", relation: "Sibling", position: "bottom", placed: false },
+  {
+    id: 1,
+    name: "👴 Great-Grandfather",
+    relation: "Great-Grandfather",
+    position: "top",
+    placed: true,
+  },
+  {
+    id: 2,
+    name: "👵 Great-Grandmother",
+    relation: "Great-Grandmother",
+    position: "top",
+    placed: true,
+  },
+  {
+    id: 3,
+    name: "🧓 Grandfather",
+    relation: "Grandfather",
+    position: "upper-middle",
+    placed: false,
+  },
+  {
+    id: 4,
+    name: "👩‍🦳 Grandmother",
+    relation: "Grandmother",
+    position: "upper-middle",
+    placed: false,
+  },
+  {
+    id: 5,
+    name: "👨 Father",
+    relation: "Father",
+    position: "middle",
+    placed: false,
+  },
+  {
+    id: 6,
+    name: "👩 Mother",
+    relation: "Mother",
+    position: "middle",
+    placed: false,
+  },
+  {
+    id: 7,
+    name: "🧒 You",
+    relation: "Child",
+    position: "bottom",
+    placed: false,
+  },
+  {
+    id: 8,
+    name: "👧 Sibling",
+    relation: "Sibling",
+    position: "bottom",
+    placed: false,
+  },
 ];
 
 const hardTreeTemplate = [
-  { id: 1, name: "👴 Great-Grandfather 1", relation: "Great-Grandfather", position: "top", placed: true },
-  { id: 2, name: "👵 Great-Grandmother 2", relation: "Great-Grandmother", position: "top", placed: true },
-  { id: 3, name: "🧓 Grandfather 1", relation: "Grandfather", position: "upper-middle", placed: false },
-  { id: 4, name: "👩‍🦳 Grandmother 2", relation: "Grandmother", position: "upper-middle", placed: false },
-  { id: 5, name: "👨 Father", relation: "Father", position: "middle", placed: false },
-  { id: 6, name: "👩 Mother", relation: "Mother", position: "middle", placed: false },
-  { id: 7, name: "🧔 Paternal Uncle", relation: "Paternal Uncle", position: "middle", placed: false },
-  { id: 8, name: "👩‍🦰 Maternal Aunt", relation: "Maternal Aunt", position: "middle", placed: false },
-  { id: 9, name: "🧒 Child", relation: "Child", position: "bottom", placed: false },
-  { id: 10, name: "👧 Sibling", relation: "Sibling", position: "bottom", placed: false },
-  { id: 11, name: "👦 First Cousin", relation: "First Cousin", position: "bottom", placed: false },
-  { id: 12, name: "👶 Baby Cousin", relation: "Baby Cousin", position: "bottom", placed: false },
+  {
+    id: 1,
+    name: "👴 Great-Grandfather 1",
+    relation: "Great-Grandfather",
+    position: "top",
+    placed: true,
+  },
+  {
+    id: 2,
+    name: "👵 Great-Grandmother 2",
+    relation: "Great-Grandmother",
+    position: "top",
+    placed: true,
+  },
+  {
+    id: 3,
+    name: "🧓 Grandfather 1",
+    relation: "Grandfather",
+    position: "upper-middle",
+    placed: false,
+  },
+  {
+    id: 4,
+    name: "👩‍🦳 Grandmother 2",
+    relation: "Grandmother",
+    position: "upper-middle",
+    placed: false,
+  },
+  {
+    id: 5,
+    name: "👨 Father",
+    relation: "Father",
+    position: "middle",
+    placed: false,
+  },
+  {
+    id: 6,
+    name: "👩 Mother",
+    relation: "Mother",
+    position: "middle",
+    placed: false,
+  },
+  {
+    id: 7,
+    name: "🧔 Paternal Uncle",
+    relation: "Paternal Uncle",
+    position: "middle",
+    placed: false,
+  },
+  {
+    id: 8,
+    name: "👩‍🦰 Maternal Aunt",
+    relation: "Maternal Aunt",
+    position: "middle",
+    placed: false,
+  },
+  {
+    id: 9,
+    name: "🧒 Child",
+    relation: "Child",
+    position: "bottom",
+    placed: false,
+  },
+  {
+    id: 10,
+    name: "👧 Sibling",
+    relation: "Sibling",
+    position: "bottom",
+    placed: false,
+  },
+  {
+    id: 11,
+    name: "👦 First Cousin",
+    relation: "First Cousin",
+    position: "bottom",
+    placed: false,
+  },
+  {
+    id: 12,
+    name: "👶 Baby Cousin",
+    relation: "Baby Cousin",
+    position: "bottom",
+    placed: false,
+  },
 ];
 
 const MAX_LEVEL = 3;
@@ -49,8 +199,10 @@ const normalizeRelation = (relation) => {
 const updateTreeWithFamilyData = (treeTemplate, familyData) => {
   return treeTemplate.map((node) => {
     const normalizedNodeRelation = normalizeRelation(node.relation);
-    const matchedMembers = familyData.filter((member) =>
-      member.relation && normalizeRelation(member.relation) === normalizedNodeRelation
+    const matchedMembers = familyData.filter(
+      (member) =>
+        member.relation &&
+        normalizeRelation(member.relation) === normalizedNodeRelation
     );
     if (matchedMembers.length > 0) {
       return { ...node, ...matchedMembers[0], records: matchedMembers };
@@ -65,7 +217,9 @@ const getTreeForLevel = (level, familyData) => {
   else if (level === 2) treeTemplate = mediumTreeTemplate;
   else treeTemplate = hardTreeTemplate;
 
-  return familyData ? updateTreeWithFamilyData(treeTemplate, familyData) : treeTemplate;
+  return familyData
+    ? updateTreeWithFamilyData(treeTemplate, familyData)
+    : treeTemplate;
 };
 
 const getRandomCurrentCard = (treeArray) => {
@@ -118,19 +272,37 @@ const FamilyTreeGame = () => {
       console.log("Decoded token:", decoded);
 
       const patientIdFromToken = decoded ? decoded.id : null;
-      const patientId = patientIdFromToken || localStorage.getItem("patientId") || "67adc06b470800e14d60b80";
-      console.log(`[${new Date().toISOString()}] Fetching family data for patientId: ${patientId}`);
-      console.log(`[${new Date().toISOString()}] Using token: ${token.substring(0, 10)}...`);
+      const patientId =
+        patientIdFromToken ||
+        localStorage.getItem("patientId") ||
+        "67adc06b470800e14d60b80";
+      console.log(
+        `[${new Date().toISOString()}] Fetching family data for patientId: ${patientId}`
+      );
+      console.log(
+        `[${new Date().toISOString()}] Using token: ${token.substring(0, 10)}...`
+      );
 
-      const response = await axios.get(`http://localhost:5000/api/family/${patientId}`, {
-        headers: { "x-auth-token": token },
-      });
-      console.log(`[${new Date().toISOString()}] Family data fetched successfully:`, response.data);
-      const data = Array.isArray(response.data) ? response.data : [response.data];
+      const response = await axios.get(
+        `https://game-theraphy-backend.onrender.com/api/family/${patientId}`,
+        {
+          headers: { "x-auth-token": token },
+        }
+      );
+      console.log(
+        `[${new Date().toISOString()}] Family data fetched successfully:`,
+        response.data
+      );
+      const data = Array.isArray(response.data)
+        ? response.data
+        : [response.data];
       setFamilyData(data);
       localStorage.setItem("familyData", JSON.stringify(data));
     } catch (error) {
-      logError("Error fetching family data:", error.response?.data || error.message);
+      logError(
+        "Error fetching family data:",
+        error.response?.data || error.message
+      );
     }
   };
 
@@ -164,7 +336,11 @@ const FamilyTreeGame = () => {
       setTimeElapsed((prev) => prev + 1);
     }, 1000);
 
-    if (timeElapsed > 0 && tree.length > 0 && tree.every((slot) => slot.placed)) {
+    if (
+      timeElapsed > 0 &&
+      tree.length > 0 &&
+      tree.every((slot) => slot.placed)
+    ) {
       clearInterval(timer);
       winSound.play();
       setGameCompleted(true);
@@ -180,9 +356,14 @@ const FamilyTreeGame = () => {
   const startSession = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/games/start",
+        "https://game-theraphy-backend.onrender.com/api/games/start",
         { gameId: "family_tree", gameName: "Family Tree Game", startLevel: 1 },
-        { headers: { "x-auth-token": localStorage.getItem("token"), "Content-Type": "application/json" } }
+        {
+          headers: {
+            "x-auth-token": localStorage.getItem("token"),
+            "Content-Type": "application/json",
+          },
+        }
       );
       setSessionId(response.data.sessionId);
       localStorage.setItem("familyTreeSessionId", response.data.sessionId);
@@ -207,9 +388,14 @@ const FamilyTreeGame = () => {
       };
       console.log("Sending progress data:", payload);
       const response = await axios.post(
-        "http://localhost:5000/api/games/progress",
+        "https://game-theraphy-backend.onrender.com/api/games/progress",
         payload,
-        { headers: { "x-auth-token": localStorage.getItem("token"), "Content-Type": "application/json" } }
+        {
+          headers: {
+            "x-auth-token": localStorage.getItem("token"),
+            "Content-Type": "application/json",
+          },
+        }
       );
       console.log("Progress saved successfully:", response.data);
     } catch (error) {
@@ -324,16 +510,31 @@ const FamilyTreeGame = () => {
       {/* Top Bar */}
       <div className="top-bar">
         <div className="top-left">
-          <button className="exit-btn" onClick={handleExitGame}>Exit</button>
-          <button className="undo-btn" onClick={handleUndo} disabled={history.length === 0 || tree.every((slot) => slot.placed)}>Undo</button>
-          <button className="restart-btn" onClick={handleRestartGame}>Restart</button>
+          <button className="exit-btn" onClick={handleExitGame}>
+            Exit
+          </button>
+          <button
+            className="undo-btn"
+            onClick={handleUndo}
+            disabled={history.length === 0 || tree.every((slot) => slot.placed)}
+          >
+            Undo
+          </button>
+          <button className="restart-btn" onClick={handleRestartGame}>
+            Restart
+          </button>
         </div>
         <div className="top-right">
-          <button className="help-btn" onClick={() =>
-            alert(
-              "Drag the card to its correct position. Earn points, undo mistakes, and complete the family tree. When you win, click 'Next Level' to advance. Click 'Start Game' when you're ready. Use 'Restart' to begin a new session."
-            )
-          }>Help</button>
+          <button
+            className="help-btn"
+            onClick={() =>
+              alert(
+                "Drag the card to its correct position. Earn points, undo mistakes, and complete the family tree. When you win, click 'Next Level' to advance. Click 'Start Game' when you're ready. Use 'Restart' to begin a new session."
+              )
+            }
+          >
+            Help
+          </button>
           <div className="timer">
             <img src="/timer.png" alt="Timer Icon" className="timer-icon" />
             <span>{timeElapsed < 10 ? `0${timeElapsed}` : timeElapsed} s</span>
@@ -342,10 +543,20 @@ const FamilyTreeGame = () => {
       </div>
 
       {/* Header */}
-      <motion.div id="header" variants={headerVariants} initial="hidden" animate="visible" className="header-center">
-        <span className="level-title">Family Tree Game - Level {currentLevel}</span>
+      <motion.div
+        id="header"
+        variants={headerVariants}
+        initial="hidden"
+        animate="visible"
+        className="header-center"
+      >
+        <span className="level-title">
+          Family Tree Game - Level {currentLevel}
+        </span>
         <span className="score">Score: {score}</span>
-        <span className="mistakes">Mistakes: {accumulatedMistakes + mistakes}</span>
+        <span className="mistakes">
+          Mistakes: {accumulatedMistakes + mistakes}
+        </span>
       </motion.div>
 
       {/* Family Tree Area */}
@@ -353,85 +564,102 @@ const FamilyTreeGame = () => {
         {levelsOrder.map((level, index) => (
           <React.Fragment key={level}>
             <div className={`tree-level ${level}`}>
-              {tree.filter((item) => item.position === level).map((slot) => (
-                <motion.div
-                  key={slot.id}
-                  className="tree-node"
-                  onDragOver={(e) => e.preventDefault()}
-                  onDrop={(e) => handleDrop(e, slot.position)}
-                  variants={nodeVariants}
-                  initial="hidden"
-                  animate="visible"
-                >
-                  {slot.placed && (
-                    <motion.div className="card placed" variants={nodeVariants} animate="placed" transition={{ duration: 0.3 }}>
-                      {slot.imageUrl ? (
-                        <img
-                          src={`http://localhost:5000/uploads/family/${slot.imageUrl}`}
-                          alt={slot.relation}
-                          className="family-image"
-                        />
-                      ) : (
-                        <strong>
-                          {slot.records ? slot.records.map((r) => r.name).join(", ") : slot.name}
-                        </strong>
-                      )}
-                      {/* <p className="relation">{slot.relation}</p> */}
-                    </motion.div>
-                  )}
-                </motion.div>
-              ))}
+              {tree
+                .filter((item) => item.position === level)
+                .map((slot) => (
+                  <motion.div
+                    key={slot.id}
+                    className="tree-node"
+                    onDragOver={(e) => e.preventDefault()}
+                    onDrop={(e) => handleDrop(e, slot.position)}
+                    variants={nodeVariants}
+                    initial="hidden"
+                    animate="visible"
+                  >
+                    {slot.placed && (
+                      <motion.div
+                        className="card placed"
+                        variants={nodeVariants}
+                        animate="placed"
+                        transition={{ duration: 0.3 }}
+                      >
+                        {slot.imageUrl ? (
+                          <img
+                            src={`https://game-theraphy-backend.onrender.com/uploads/family/${slot.imageUrl}`}
+                            alt={slot.relation}
+                            className="family-image"
+                          />
+                        ) : (
+                          <strong>
+                            {slot.records
+                              ? slot.records.map((r) => r.name).join(", ")
+                              : slot.name}
+                          </strong>
+                        )}
+                        {/* <p className="relation">{slot.relation}</p> */}
+                      </motion.div>
+                    )}
+                  </motion.div>
+                ))}
             </div>
             {index < levelsOrder.length - 1 && <div className="connector" />}
           </React.Fragment>
         ))}
       </div>
 
-      
-
       {/* Side Bar with Control Buttons */}
       <div className="side-bar">
         {!gameStarted && !tree.every((slot) => slot.placed) && (
-          <button className="start-btn" onClick={handleStartGame}>Start Game</button>
+          <button className="start-btn" onClick={handleStartGame}>
+            Start Game
+          </button>
         )}
         {gameCompleted && currentLevel < MAX_LEVEL && (
-          <button className="next-level-btn" onClick={handleNextLevel}>Next Level</button>
+          <button className="next-level-btn" onClick={handleNextLevel}>
+            Next Level
+          </button>
         )}
         <div className="time-display">Time: {timeElapsed}s</div>
         <AnimatePresence>
-        {gameStarted && currentCard && !currentCard.placed && (
-          <motion.div
-            className="drag-card"
-            draggable
-            onDragStart={(e) => handleDragStart(e, currentCard.id)}
-            onDragEnd={handleDragEnd}
-            variants={cardVariants}
-            whileHover="hover"
-            whileTap="tap"
-            animate={{ scale: [1, 1.1, 1] }}
-            transition={{ duration: 0.5, repeat: Infinity }}
-          >
-            {currentCard.imageUrl ? (
-              <img
-                src={`http://localhost:5000/uploads/family/${currentCard.imageUrl}`}
-                alt={currentCard.relation}
-                className="family-image"
-              />
-            ) : (
-              <>
-                <strong>{currentCard.name}</strong>
-                {/* <p className="relation">{currentCard.relation}</p> */}
-              </>
-            )}
-          </motion.div>
-        )}
-      </AnimatePresence>
+          {gameStarted && currentCard && !currentCard.placed && (
+            <motion.div
+              className="drag-card"
+              draggable
+              onDragStart={(e) => handleDragStart(e, currentCard.id)}
+              onDragEnd={handleDragEnd}
+              variants={cardVariants}
+              whileHover="hover"
+              whileTap="tap"
+              animate={{ scale: [1, 1.1, 1] }}
+              transition={{ duration: 0.5, repeat: Infinity }}
+            >
+              {currentCard.imageUrl ? (
+                <img
+                  src={`https://game-theraphy-backend.onrender.com/uploads/family/${currentCard.imageUrl}`}
+                  alt={currentCard.relation}
+                  className="family-image"
+                />
+              ) : (
+                <>
+                  <strong>{currentCard.name}</strong>
+                  {/* <p className="relation">{currentCard.relation}</p> */}
+                </>
+              )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* Win Message */}
       <AnimatePresence>
         {tree.every((slot) => slot.placed) && (
-          <motion.div className="win-message" initial={{ scale: 0 }} animate={{ scale: 1.2 }} exit={{ opacity: 0 }} transition={{ type: "spring", stiffness: 100 }}>
+          <motion.div
+            className="win-message"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1.2 }}
+            exit={{ opacity: 0 }}
+            transition={{ type: "spring", stiffness: 100 }}
+          >
             🎉 You completed the family tree!
           </motion.div>
         )}

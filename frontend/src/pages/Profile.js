@@ -26,7 +26,7 @@ const Profile = () => {
     const errorDetails = error.response ? error.response.data : error.message;
     console.error(customMessage, errorDetails);
     // Optional: Send error logs to your backend logging endpoint
-    // axios.post("http://localhost:5000/api/log", {
+    // axios.post("https://game-theraphy-backend.onrender.com/api/log", {
     //   message: customMessage,
     //   error: errorDetails,
     // });
@@ -36,9 +36,12 @@ const Profile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/detail", {
-          headers: { "x-auth-token": token },
-        });
+        const res = await axios.get(
+          "https://game-theraphy-backend.onrender.com/api/detail",
+          {
+            headers: { "x-auth-token": token },
+          }
+        );
         setProfile(res.data);
         // Pre-fill edit form values; convert null values to empty strings
         setEditName(res.data.name || "");
@@ -71,7 +74,7 @@ const Profile = () => {
       formData.append("profilePic", selectedFile);
       try {
         const photoRes = await axios.post(
-          "http://localhost:5000/api/detail/photo",
+          "https://game-theraphy-backend.onrender.com/api/detail/photo",
           formData,
           {
             headers: {
@@ -100,7 +103,7 @@ const Profile = () => {
     console.log("Updating profile with payload:", payload);
     try {
       const res = await axios.patch(
-        "http://localhost:5000/api/detail",
+        "https://game-theraphy-backend.onrender.com/api/detail",
         payload,
         {
           headers: {
@@ -124,12 +127,12 @@ const Profile = () => {
     <div className="profile-container">
       <h2>My Profile</h2>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-      
+
       {profile ? (
         <div className="profile-detail">
           {profile.profilePic ? (
             <img
-              src={`http://localhost:5000/${profile.profilePic.replace(/\\/g, "/")}`}
+              src={`https://game-theraphy-backend.onrender.com/${profile.profilePic.replace(/\\/g, "/")}`}
               alt="Profile"
               className="profile-photo"
             />

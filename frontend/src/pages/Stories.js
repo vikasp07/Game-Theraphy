@@ -13,9 +13,12 @@ const Stories = () => {
   useEffect(() => {
     const fetchStories = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/ediary", {
-          headers: { "x-auth-token": token },
-        });
+        const res = await axios.get(
+          "https://game-theraphy-backend.onrender.com/api/ediary",
+          {
+            headers: { "x-auth-token": token },
+          }
+        );
         console.log("Fetched stories:", res.data);
         setStories(res.data);
       } catch (err) {
@@ -29,7 +32,7 @@ const Stories = () => {
     fetchStories();
   }, [token]);
 
-    const handleAudioError = (e, storyId) => {
+  const handleAudioError = (e, storyId) => {
     const audioElement = e.target;
     console.error(`Error playing audio for story ${storyId}:`, e);
     console.error("Audio source URL:", audioElement.src);
@@ -42,7 +45,9 @@ const Stories = () => {
         <div className="stories-grid">
           {stories.map((story) => {
             // Construct and encode the file URL
-            const fileURL = encodeURI(`http://localhost:5000/${story.voiceNote.replace(/\\/g, "/")}`);
+            const fileURL = encodeURI(
+              `https://game-theraphy-backend.onrender.com/${story.voiceNote.replace(/\\/g, "/")}`
+            );
             return (
               <div key={story._id} className="story-card">
                 <h3>{story.title}</h3>
@@ -50,7 +55,9 @@ const Stories = () => {
                   <source src={fileURL} type="audio/mpeg" />
                   Your browser does not support the audio element.
                 </audio>
-                <p className="timestamp">{new Date(story.timestamp).toLocaleString()}</p>
+                <p className="timestamp">
+                  {new Date(story.timestamp).toLocaleString()}
+                </p>
               </div>
             );
           })}

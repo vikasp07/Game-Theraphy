@@ -43,7 +43,7 @@
 //         return;
 //       }
 //       // NOTE: Changed endpoint from /api/auth/user to /api/detail
-//       const res = await axios.get("http://localhost:5000/api/detail", {
+//       const res = await axios.get("https://game-theraphy-backend.onrender.com/api/detail", {
 //         headers: { "x-auth-token": token },
 //       });
 //       console.log("User details fetched:", res.data);
@@ -62,7 +62,7 @@
 //         navigate("/login");
 //         return;
 //       }
-//       const res = await axios.get("http://localhost:5000/api/patient/games", {
+//       const res = await axios.get("https://game-theraphy-backend.onrender.com/api/patient/games", {
 //         headers: { "x-auth-token": token },
 //       });
 //       console.log("Games fetched:", res.data);
@@ -81,7 +81,7 @@
 //         navigate("/login");
 //         return;
 //       }
-//       const res = await axios.get("http://localhost:5000/api/patient/progress", {
+//       const res = await axios.get("https://game-theraphy-backend.onrender.com/api/patient/progress", {
 //         headers: { "x-auth-token": token },
 //       });
 //       console.log("Progress fetched:", res.data);
@@ -123,7 +123,7 @@
 //         <div className="profile-dropdown" ref={dropdownRef}>
 //           {user?.profilePic ? (
 //             <img
-//               src={`http://localhost:5000/${user.profilePic.replace(/\\/g, "/")}`}
+//               src={`https://game-theraphy-backend.onrender.com/${user.profilePic.replace(/\\/g, "/")}`}
 //               alt="Profile"
 //               className="profile-pic"
 //               onClick={toggleDropdown}
@@ -141,7 +141,7 @@
 //               <div className="dropdown-header">
 //                 {user?.profilePic ? (
 //                   <img
-//                     src={`http://localhost:5000/${user.profilePic.replace(/\\/g, "/")}`}
+//                     src={`https://game-theraphy-backend.onrender.com/${user.profilePic.replace(/\\/g, "/")}`}
 //                     alt="Profile"
 //                     className="dropdown-profile-pic"
 //                   />
@@ -282,9 +282,12 @@ const PatientDashboard = () => {
         navigate("/login");
         return;
       }
-      const res = await axios.get("http://localhost:5000/api/detail", {
-        headers: { "x-auth-token": token },
-      });
+      const res = await axios.get(
+        "https://game-theraphy-backend.onrender.com/api/detail",
+        {
+          headers: { "x-auth-token": token },
+        }
+      );
       setUser(res.data);
     } catch (error) {
       setError("Failed to load user details.");
@@ -298,9 +301,12 @@ const PatientDashboard = () => {
         navigate("/login");
         return;
       }
-      const res = await axios.get("http://localhost:5000/api/patient/games", {
-        headers: { "x-auth-token": token },
-      });
+      const res = await axios.get(
+        "https://game-theraphy-backend.onrender.com/api/patient/games",
+        {
+          headers: { "x-auth-token": token },
+        }
+      );
       setGames(res.data.slice(0, 8)); // Show only 7 games
     } catch (error) {
       setError("Failed to load games.");
@@ -315,7 +321,7 @@ const PatientDashboard = () => {
         return;
       }
       const res = await axios.get(
-        "http://localhost:5000/api/patient/progress",
+        "https://game-theraphy-backend.onrender.com/api/patient/progress",
         {
           headers: { "x-auth-token": token },
         }
@@ -348,12 +354,11 @@ const PatientDashboard = () => {
           <Link to="/pages/Ediary">e-Diary</Link>
         </div>
         <div className="profile-dropdown" ref={dropdownRef}>
-           {user?.profilePic ? (
+          {user?.profilePic ? (
             <img
-              src={`http://localhost:5000/${user.profilePic.replace(/\\/g, "/")}`}
+              src={`https://game-theraphy-backend.onrender.com/${user.profilePic.replace(/\\/g, "/")}`}
               alt="Profile"
               className="profile-pic"
-
               onClick={toggleDropdown}
             />
           ) : (
@@ -369,7 +374,7 @@ const PatientDashboard = () => {
               <div className="dropdown-header">
                 {user?.profilePic ? (
                   <img
-                    src={`http://localhost:5000/${user.profilePic.replace(/\\/g, "/")}`}
+                    src={`https://game-theraphy-backend.onrender.com/${user.profilePic.replace(/\\/g, "/")}`}
                     alt="Profile"
                     className="dropdown-profile-pic"
                   />
@@ -392,13 +397,16 @@ const PatientDashboard = () => {
                 Profile
               </Link>
               <Link to="/leaderboard" className="dropdown-item">
-              Leaderboard
+                Leaderboard
               </Link>
               <Link to="/settings" className="dropdown-item">
                 Settings
               </Link>
               <div className="dropdown-divider" />
-              <button onClick={handleLogout} className="dropdown-item logout-btn">
+              <button
+                onClick={handleLogout}
+                className="dropdown-item logout-btn"
+              >
                 Sign out
               </button>
             </div>
@@ -495,8 +503,6 @@ const PatientDashboard = () => {
               </div>
             </div>
           </section>
-
-         
         </main>
       </div>
 

@@ -19,7 +19,7 @@ const AstrayGame = () => {
           );
           axios
             .post(
-              "http://localhost:5000/api/games/progress",
+              "https://game-theraphy-backend.onrender.com/api/games/progress",
               event.data.progress,
               {
                 headers: {

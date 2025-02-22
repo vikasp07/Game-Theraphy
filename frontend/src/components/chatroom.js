@@ -2,7 +2,7 @@
 // import io from "socket.io-client";
 // import axios from "axios";
 
-// const socket = io("http://localhost:5000");
+// const socket = io("https://game-theraphy-backend.onrender.com");
 
 // const Chatroom = () => {
 //   const [messages, setMessages] = useState([]);
@@ -26,7 +26,7 @@
 //   const fetchUserData = async () => {
 //     try {
 //       const token = localStorage.getItem("token");
-//       const res = await axios.get("http://localhost:5000/api/auth/user", {
+//       const res = await axios.get("https://game-theraphy-backend.onrender.com/api/auth/user", {
 //         headers: { "x-auth-token": token },
 //       });
 //       setUser(res.data);
@@ -82,7 +82,7 @@ import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
 import axios from "axios";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://game-theraphy-backend.onrender.com");
 
 const Chatroom = () => {
   const [messages, setMessages] = useState([]);
@@ -110,9 +110,12 @@ const Chatroom = () => {
   const fetchUserData = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/auth/user", {
-        headers: { "x-auth-token": token },
-      });
+      const res = await axios.get(
+        "https://game-theraphy-backend.onrender.com/api/auth/user",
+        {
+          headers: { "x-auth-token": token },
+        }
+      );
       setUser(res.data);
     } catch (error) {
       console.error("Error fetching user data:", error);

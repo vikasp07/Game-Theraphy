@@ -32,21 +32,21 @@ const MathQuiz = () => {
   const startNewSession = useCallback(async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/games/start",
+        "https://game-theraphy-backend.onrender.com/api/games/start",
         { gameId: "math_quiz", gameName: "Math Quiz", startLevel },
         {
           headers: {
             "x-auth-token": token,
             "Content-Type": "application/json",
           },
-        },
+        }
       );
       setSessionId(response.data.sessionId);
       console.log("New session started:", response.data.sessionId);
     } catch (error) {
       console.error(
         "Error starting session:",
-        error.response?.data || error.message,
+        error.response?.data || error.message
       );
     }
   }, [token, startLevel]);
@@ -76,7 +76,7 @@ const MathQuiz = () => {
     if (!question) return;
 
     const correctAnswer = eval(
-      `${question.num1} ${question.operation} ${question.num2}`,
+      `${question.num1} ${question.operation} ${question.num2}`
     );
     let updatedScore = score;
 
@@ -112,14 +112,21 @@ const MathQuiz = () => {
     console.log("Sending progress data:", payload);
 
     try {
-      await axios.post("http://localhost:5000/api/games/progress", payload, {
-        headers: { "x-auth-token": token, "Content-Type": "application/json" },
-      });
+      await axios.post(
+        "https://game-theraphy-backend.onrender.com/api/games/progress",
+        payload,
+        {
+          headers: {
+            "x-auth-token": token,
+            "Content-Type": "application/json",
+          },
+        }
+      );
       console.log("Progress saved successfully.");
     } catch (error) {
       console.error(
         "Error saving progress:",
-        error.response?.data || error.message,
+        error.response?.data || error.message
       );
     }
 

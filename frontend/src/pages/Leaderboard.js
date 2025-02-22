@@ -11,9 +11,12 @@ const Leaderboard = () => {
     const fetchLeaderboard = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:5000/api/leaderboard", {
-          headers: { "x-auth-token": token },
-        });
+        const res = await axios.get(
+          "https://game-theraphy-backend.onrender.com/api/leaderboard",
+          {
+            headers: { "x-auth-token": token },
+          }
+        );
         console.log("API response:", res.data); // Debug: log the raw API data
         setLeaderboardData(res.data);
         setError("");

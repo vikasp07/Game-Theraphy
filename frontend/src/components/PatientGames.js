@@ -31,7 +31,7 @@ ChartJS.register(
   ChartDataLabels
 );
 
-const socket = io("http://localhost:5000"); // Connect to backend WebSocket server
+const socket = io("https://game-theraphy-backend.onrender.com"); // Connect to backend WebSocket server
 
 const PatientGames = () => {
   const { patientId } = useParams();
@@ -83,7 +83,7 @@ const PatientGames = () => {
   const fetchPatientGames = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/guardian/patient/${patientId}`,
+        `https://game-theraphy-backend.onrender.com/api/guardian/patient/${patientId}`,
         { headers: { "x-auth-token": token } }
       );
       setGamesData(res.data);
@@ -102,7 +102,7 @@ const PatientGames = () => {
   const fetchTasks = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/tasks/${patientId}`,
+        `https://game-theraphy-backend.onrender.com/api/tasks/${patientId}`,
         { headers: { "x-auth-token": token } }
       );
       setTasks(res.data);
@@ -272,7 +272,7 @@ const PatientGames = () => {
     try {
       const payload = { taskDescription, startTime, endTime };
       const res = await axios.post(
-        `http://localhost:5000/api/tasks/${patientId}`,
+        `https://game-theraphy-backend.onrender.com/api/tasks/${patientId}`,
         payload,
         {
           headers: {
@@ -286,7 +286,7 @@ const PatientGames = () => {
       await fetchTasks();
       // Send SMS notification
       const userRes = await axios.get(
-        `http://localhost:5000/api/users/${patientId}`,
+        `https://game-theraphy-backend.onrender.com/api/users/${patientId}`,
         { headers: { "x-auth-token": token } }
       );
       const userMobile = userRes.data.mobile;
@@ -295,7 +295,7 @@ const PatientGames = () => {
         message: `New task assigned: ${taskDescription} from ${startTime} to ${endTime}`,
       };
       await axios.post(
-        "http://localhost:5000/api/notifications/send-sms",
+        "https://game-theraphy-backend.onrender.com/api/notifications/send-sms",
         smsPayload,
         {
           headers: { "x-auth-token": token },
@@ -323,7 +323,7 @@ const PatientGames = () => {
         imageUrl: familyImageUrl,
       };
       const res = await axios.post(
-        `http://localhost:5000/api/family/${patientId}`,
+        `https://game-theraphy-backend.onrender.com/api/family/${patientId}`,
         payload,
         {
           headers: {

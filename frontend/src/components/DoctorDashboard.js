@@ -26,9 +26,12 @@ const DoctorDashboard = () => {
         return;
       }
 
-      const res = await axios.get("http://localhost:5000/api/doctor/seminars", {
-        headers: { "x-auth-token": token },
-      });
+      const res = await axios.get(
+        "https://game-theraphy-backend.onrender.com/api/doctor/seminars",
+        {
+          headers: { "x-auth-token": token },
+        }
+      );
 
       setSeminars(res.data);
     } catch (error) {
@@ -57,7 +60,7 @@ const DoctorDashboard = () => {
       }
 
       const res = await axios.post(
-        "http://localhost:5000/api/doctor/seminars",
+        "https://game-theraphy-backend.onrender.com/api/doctor/seminars",
         newSeminar,
         { headers: { "x-auth-token": token } }
       );

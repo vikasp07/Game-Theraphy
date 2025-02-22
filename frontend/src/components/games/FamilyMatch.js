@@ -43,18 +43,25 @@ const FamilyMatchGame = () => {
       const decoded = decodeToken(token);
       const patientIdFromToken = decoded ? decoded.id : null;
       const patientId =
-        patientIdFromToken || localStorage.getItem("patientId") || "67adc06b470800e14d60b80";
-      const response = await axios.get(`http://localhost:5000/api/family/${patientId}`, {
-        headers: { "x-auth-token": token },
-      });
-      const data = Array.isArray(response.data) ? response.data : [response.data];
+        patientIdFromToken ||
+        localStorage.getItem("patientId") ||
+        "67adc06b470800e14d60b80";
+      const response = await axios.get(
+        `https://game-theraphy-backend.onrender.com/api/family/${patientId}`,
+        {
+          headers: { "x-auth-token": token },
+        }
+      );
+      const data = Array.isArray(response.data)
+        ? response.data
+        : [response.data];
       // Process each member so that if imageUrl is provided, it fetches the image from the backend;
       // otherwise, it uses a placeholder image.
       const processedData = data.map((member) => ({
         ...member,
         photo: member.imageUrl
-          ? `http://localhost:5000/uploads/family/${member.imageUrl}`
-          : "https://via.placeholder.com/150"
+          ? `https://game-theraphy-backend.onrender.com/uploads/family/${member.imageUrl}`
+          : "https://via.placeholder.com/150",
       }));
       setFamilyData(processedData);
       // Note: We wait for the user to click "Start Game" before starting.
@@ -176,7 +183,14 @@ const FamilyMatchGame = () => {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [gameStarted, answerResult, candidateIndex, targetFamilyMember, candidates, gameOver]);
+  }, [
+    gameStarted,
+    answerResult,
+    candidateIndex,
+    targetFamilyMember,
+    candidates,
+    gameOver,
+  ]);
 
   // Initialize serial port connection and listen for incoming data.
   const initSerial = async () => {
@@ -209,7 +223,10 @@ const FamilyMatchGame = () => {
               // If the trimmed message is "0", simulate a Right Arrow key press.
               if (trimmed === "0") {
                 window.dispatchEvent(
-                  new KeyboardEvent("keydown", { key: "ArrowRight", bubbles: true })
+                  new KeyboardEvent("keydown", {
+                    key: "ArrowRight",
+                    bubbles: true,
+                  })
                 );
               }
             });
@@ -242,7 +259,7 @@ const FamilyMatchGame = () => {
         <button onClick={handleStartGame} disabled={familyData.length === 0}>
           Start Game
         </button>
-        {(!serialPort && "serial" in navigator) && (
+        {!serialPort && "serial" in navigator && (
           <button onClick={initSerial}>Connect COM Port</button>
         )}
         <button onClick={() => navigate("/dashboard")}>Exit</button>
@@ -268,10 +285,7 @@ const FamilyMatchGame = () => {
         </div>
         <div className="photo-card">
           {targetFamilyMember ? (
-            <img
-              src={targetFamilyMember.photo}
-              alt={targetFamilyMember.name}
-            />
+            <img src={targetFamilyMember.photo} alt={targetFamilyMember.name} />
           ) : (
             <p>Loading photo...</p>
           )}
@@ -285,18 +299,18 @@ const FamilyMatchGame = () => {
       {answerResult && (
         <div className="result-message">
           <h2>{answerResult}</h2>
-          {!gameOver && (
-            <button onClick={handleNext}>Next</button>
-          )}
+          {!gameOver && <button onClick={handleNext}>Next</button>}
         </div>
       )}
 
-      {(!serialPort && "serial" in navigator) && (
+      {!serialPort && "serial" in navigator && (
         <button onClick={initSerial}>Connect COM Port</button>
       )}
       {gameOver && (
         <>
-          <p>Game Over! Final Score: {score}, Mistakes: {mistakes}</p>
+          <p>
+            Game Over! Final Score: {score}, Mistakes: {mistakes}
+          </p>
           <button onClick={() => window.location.reload()}>Restart Game</button>
         </>
       )}
