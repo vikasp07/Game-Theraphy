@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import ProgressGraph from "./ProgressGraph";
@@ -8,99 +9,72 @@ const PatientDashboard = () => {
   const [user, setUser] = useState(null);
   const [games, setGames] = useState([]);
   const [progressData, setProgressData] = useState([]);
-  const [dailyStreak, setDailyStreak] = useState(0);
   const [error, setError] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
-  const token = localStorage.getItem("token");
-
-  const fetchUserData = useCallback(async () => {
-    try {
-      if (!token) {
-        navigate("/login");
-        return;
-      }
-      const res = await axios.get("https://game-theraphy-backend.onrender.com/api/detail", {
-        headers: { "x-auth-token": token },
-      });
-      console.log("User details fetched:", res.data);
-      setUser(res.data);
-    } catch (error) {
-      console.error("Failed to load user details:", error);
-      setError("Failed to load user details.");
-    }
-  }, [token, navigate]);
-
-  const fetchGames = useCallback(async () => {
-    try {
-      if (!token) {
-        navigate("/login");
-        return;
-      }
-      const res = await axios.get("https://game-theraphy-backend.onrender.com/api/patient/games", {
-        headers: { "x-auth-token": token },
-      });
-      console.log("Games fetched:", res.data);
-      setGames(res.data.slice(0, 8));
-    } catch (error) {
-      console.error("Failed to load games:", error);
-      setError("Failed to load games.");
-    }
-  }, [token, navigate]);
-
-  const fetchProgress = useCallback(async () => {
-    try {
-      if (!token) {
-        navigate("/login");
-        return;
-      }
-      const res = await axios.get("https://game-theraphy-backend.onrender.com/api/patient/progress", {
-        headers: { "x-auth-token": token },
-      });
-      console.log("Progress fetched:", res.data);
-      setProgressData(res.data);
-    } catch (error) {
-      console.error("Failed to load progress:", error);
-      setError("Failed to load progress.");
-    }
-  }, [token, navigate]);
-
-  const fetchDailyStreak = useCallback(async () => {
-    try {
-      if (!token) {
-        navigate("/login");
-        return;
-      }
-      const res = await axios.get("https://game-theraphy-backend.onrender.com/api/visit/streak", {
-        headers: { "x-auth-token": token },
-      });
-      console.log("Daily streak fetched:", res.data);
-      setDailyStreak(res.data.dailyStreak);
-    } catch (error) {
-      console.error("Error fetching daily streak:", error.response ? error.response.data : error.message);
-    }
-  }, [token, navigate]);
 
   useEffect(() => {
     fetchUserData();
     fetchGames();
     fetchProgress();
-    fetchDailyStreak();
-  }, [fetchUserData, fetchGames, fetchProgress, fetchDailyStreak]);
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsDropdownOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen((prev) => !prev);
+  const fetchUserData = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        navigate("/login");
+        return;
+      }
+      const res = await axios.get(
+        "https://game-theraphy-backend.onrender.com/api/detail",
+        {
+          headers: { "x-auth-token": token },
+        }
+      );
+      setUser(res.data);
+    } catch (error) {
+      setError("Failed to load user details.");
+    }
+  };
+
+  const fetchGames = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        navigate("/login");
+        return;
+      }
+      const res = await axios.get(
+        "https://game-theraphy-backend.onrender.com/api/patient/games",
+        {
+          headers: { "x-auth-token": token },
+        }
+      );
+      setGames(res.data.slice(0, 8)); // Show only 7 games
+    } catch (error) {
+      setError("Failed to load games.");
+    }
+  };
+
+  const fetchProgress = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        navigate("/login");
+        return;
+      }
+      const res = await axios.get(
+        "https://game-theraphy-backend.onrender.com/api/patient/progress",
+        {
+          headers: { "x-auth-token": token },
+        }
+      );
+      setProgressData(res.data);
+    } catch (error) {
+      setError("Failed to load progress.");
+    }
   };
 
   const handleLogout = () => {
@@ -108,18 +82,19 @@ const PatientDashboard = () => {
     navigate("/login");
   };
 
-  const handleLookUpStories = () => {
-    navigate("/pages/stories");
+  const toggleDropdown = () => {
+    setIsDropdownOpen((prev) => !prev);
   };
 
   return (
     <>
       <nav className="navbar">
-        <a href="/" className="logo">GameTherapy</a>
+        <a href="/" className="logo">
+          GameTherapy
+        </a>
         <div className="menu">
           <Link to="/dashboard">Home</Link>
           <Link to="/games">Games</Link>
-          <Link to="/pages/profile">Profile</Link>
           <Link to="/tasks">Tasks</Link>
           <Link to="/pages/Ediary">e-Diary</Link>
         </div>
@@ -157,32 +132,53 @@ const PatientDashboard = () => {
                 )}
                 <div className="dropdown-user-info">
                   <p className="dropdown-name">{user?.name || "User Name"}</p>
-                  <p className="dropdown-email">{user?.email || "user@example.com"}</p>
+                  <p className="dropdown-email">
+                    {user?.email || "user@example.com"}
+                  </p>
                 </div>
               </div>
               <div className="dropdown-divider" />
-              <Link to="/pages/profile" className="dropdown-item">Profile</Link>
-              <Link to="/leaderboard" className="dropdown-item">Leaderboard</Link>
-              <Link to="/settings" className="dropdown-item">Settings</Link>
+              <Link to="/pages/profile" className="dropdown-item">
+                Profile
+              </Link>
+              <Link to="/leaderboard" className="dropdown-item">
+                Leaderboard
+              </Link>
+              <Link to="/settings" className="dropdown-item">
+                Settings
+              </Link>
               <div className="dropdown-divider" />
-              <button onClick={handleLogout} className="dropdown-item logout-btn">Sign out</button>
+              <button
+                onClick={handleLogout}
+                className="dropdown-item logout-btn"
+              >
+                Sign out
+              </button>
             </div>
           )}
         </div>
       </nav>
+
       <div className="dashboard-container">
         <main className="main-content">
           {error && <p className="error">{error}</p>}
+
+          {/* Play & Enjoy Section */}
           <section className="game-section">
-            <h2>Play &amp; Enjoy</h2>
+            <h2>Play & Enjoy</h2>
             <div className="game-grid">
               {games.length > 0 ? (
                 games.map((game) => (
                   <div className="game-card" key={game.id}>
-                    <img src={game.image || `/game_${game.id}.jpeg`} alt={game.title} />
+                    <img
+                      src={game.image || `/game_${game.id}.jpeg`}
+                      alt={game.title}
+                    />
                     <h4>{game.title}</h4>
                     <p>{game.description}</p>
-                    <button onClick={() => navigate(`/games/${game.id}`)}>Play Now</button>
+                    <button onClick={() => navigate(`/games/${game.id}`)}>
+                      Play Now
+                    </button>
                   </div>
                 ))
               ) : (
@@ -190,30 +186,71 @@ const PatientDashboard = () => {
               )}
             </div>
           </section>
-          <div className="chatroom-card">
-            <h2>Join the Chatroom</h2>
-            <p>Connect with others and discuss freely.</p>
-            <button onClick={() => navigate("/chatroom")}>Enter Chatroom</button>
-          </div>
-          <section className="progress-section">
-            <h2>Your Progress</h2>
-            {progressData.length > 0 ? (
-              <ProgressGraph progress={progressData} />
-            ) : (
-              <p>No progress recorded yet.</p>
-            )}
-          </section>
-          <section className="stories-section">
-            <button onClick={handleLookUpStories} className="stories-btn">
-              Look Up to Your Stories
-            </button>
-          </section>
-          <section className="streak-section">
-            <h3>Daily Streak</h3>
-            <p>You have logged in for <strong>{dailyStreak}</strong> consecutive days.</p>
+
+          {/* Share & Communicate Section */}
+          <section className="communication-section">
+            <h2>Share & Communicate</h2>
+            <div className="card-grid">
+              {/* Therapeutic Bot */}
+              <div className="feature-card">
+                <img
+                  src="/therapeutic_bot.png"
+                  alt="Therapeutic Bot"
+                  className="card-image"
+                />
+                <h4>Therapeutic Bot</h4>
+                <p>
+                  Need a listening ear? Chat with our AI-powered bot for a safe
+                  space to share your thoughts.
+                </p>
+                <button
+                  onClick={() =>
+                    (window.location.href =
+                      "https://96bd02286bf4975648.gradio.live/")
+                  }
+                >
+                  Share Your Thoughts
+                </button>
+              </div>
+
+              {/* Chatroom */}
+              <div className="feature-card">
+                <img
+                  src="/chatroom.jpg"
+                  alt="Chatroom"
+                  className="card-image"
+                />
+                <h4>Join the Chatroom</h4>
+                <p>
+                  Connect with others and discuss freely in our supportive
+                  community.
+                </p>
+                <button onClick={() => navigate("/chatroom")}>
+                  Enter Chatroom
+                </button>
+              </div>
+
+              {/* Stories Card */}
+              <div className="feature-card">
+                <img
+                  src="/stories.png"
+                  alt="Voice Stories"
+                  className="card-image"
+                />
+                <h4>Your Voice Stories</h4>
+                <p>
+                  Listen to your recorded voice entries from the e-Diary and
+                  track your journey.
+                </p>
+                <button onClick={() => navigate("/pages/stories")}>
+                  View Your Voice Entries
+                </button>
+              </div>
+            </div>
           </section>
         </main>
       </div>
+
       <footer className="footer">
         © 2025 GameTherapy. All Rights Reserved.
       </footer>
