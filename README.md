@@ -25,7 +25,7 @@ Game Therapy addresses the unique needs of people with mental challenges by prov
   Players use Arduino-based hand gestures to indicate whether a displayed name is correct by moving their hand left or right.
 
 <div align="center">
-  <img src="frontend/public/gameTheraphy.jpg" alt="Family Tree Game Screenshot" width="500">
+  <img src="frontend/public/Story.jpg" alt="Family Tree Game Screenshot" width="500">
 </div>
 
 ### Astra
@@ -45,7 +45,7 @@ Game Therapy addresses the unique needs of people with mental challenges by prov
   Engage with a built-in chat platform to share experiences and insights.
 
 <div align="center">
-  <img src="frontend/public/gameTheraphy.jpg" alt="Guardian Dashboard Screenshot" width="500">
+  <img src="frontend/public/guard.jpg" alt="Guardian Dashboard Screenshot" width="500">
 </div>
 
 ---
@@ -55,7 +55,7 @@ Game Therapy addresses the unique needs of people with mental challenges by prov
 
 Watch our detailed walkthrough of Game Therapy:
 
-[![Watch the Video](https://img.youtube.com/vi/GameTheraphy)](https://www.youtube.com/watch?v=Lg2mKiUPsIM)
+[![Watch the Video](https://img.youtube.com/vi/GameTheraphy/Homepage.jpg)](https://www.youtube.com/watch?v=Lg2mKiUPsIM)
 
 *Click the image above to watch the video demonstration.*
 
