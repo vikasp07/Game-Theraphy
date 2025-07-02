@@ -15,7 +15,9 @@ Game Therapy addresses the unique needs of people with mental challenges by prov
 ✅ **Guardian Dashboard**: Tracks player progress with visual charts.  
 ✅ **Community Support**: Users can chat with others in a safe environment.  
 
-
+<div align="center">
+  <img src="frontend/public/Homepage.jpg" alt="Family Tree Game Screenshot" width="500">
+</div>
 ---
 
 ## Interactive Features
@@ -25,16 +27,12 @@ Game Therapy addresses the unique needs of people with mental challenges by prov
   Players use Arduino-based hand gestures to indicate whether a displayed name is correct by moving their hand left or right.
 
 <div align="center">
-  <img src="frontend/public/Story.jpg" alt="Family Tree Game Screenshot" width="500">
+  <img src="frontend/public/gameTheraphy.jpg" alt="Family Tree Game Screenshot" width="500">
 </div>
 
 ### Astra
 - **Maze Navigation:**  
   Control a ball through a maze using hand gestures, enhancing motor skills and spatial awareness.
-
-<div align="center">
-  <img src="frontend/public/gameTheraphy.jpg" alt="Astra Game Screenshot" width="500">
-</div>
 
 ### AI Chatbot & Guardian Dashboard
 - **Real-Time AI Support:**  
@@ -55,7 +53,7 @@ Game Therapy addresses the unique needs of people with mental challenges by prov
 
 Watch our detailed walkthrough of Game Therapy:
 
-[![Watch the Video](https://img.youtube.com/vi/GameTheraphy/Homepage.jpg)](https://www.youtube.com/watch?v=Lg2mKiUPsIM)
+[![Watch the Video](https://img.youtube.com/vi/Lg2mKiUPsIM/0.jpg)](https://www.youtube.com/watch?v=Lg2mKiUPsIM)
 
 *Click the image above to watch the video demonstration.*
 
