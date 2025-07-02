@@ -25,7 +25,7 @@ Game Therapy addresses the unique needs of people with mental challenges by prov
   Players use Arduino-based hand gestures to indicate whether a displayed name is correct by moving their hand left or right.
 
 <div align="center">
-  <img src="path/to/family-tree-screenshot.png" alt="Family Tree Game Screenshot" width="500">
+  <img src="frontend/public/gameTheraphy.jpg" alt="Family Tree Game Screenshot" width="500">
 </div>
 
 ### Astra
@@ -33,7 +33,7 @@ Game Therapy addresses the unique needs of people with mental challenges by prov
   Control a ball through a maze using hand gestures, enhancing motor skills and spatial awareness.
 
 <div align="center">
-  <img src="path/to/astra-screenshot.png" alt="Astra Game Screenshot" width="500">
+  <img src="frontend/public/gameTheraphy.jpg" alt="Astra Game Screenshot" width="500">
 </div>
 
 ### AI Chatbot & Guardian Dashboard
@@ -45,26 +45,17 @@ Game Therapy addresses the unique needs of people with mental challenges by prov
   Engage with a built-in chat platform to share experiences and insights.
 
 <div align="center">
-  <img src="path/to/dashboard-screenshot.png" alt="Guardian Dashboard Screenshot" width="500">
+  <img src="frontend/public/gameTheraphy.jpg" alt="Guardian Dashboard Screenshot" width="500">
 </div>
 
 ---
 
-## Animation Preview
-
-See Game Therapy in action with this short animation:
-
-<div align="center">
-  <img src="path/to/your/animation.gif" alt="Game Therapy Animation" width="600">
-</div>
-
----
 
 ## Video Demonstration
 
 Watch our detailed walkthrough of Game Therapy:
 
-[![Watch the Video](https://img.youtube.com/vi/YOUR_VIDEO_ID/hqdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+[![Watch the Video](https://img.youtube.com/vi/GameTheraphy)](https://www.youtube.com/watch?v=Lg2mKiUPsIM)
 
 *Click the image above to watch the video demonstration.*
 
