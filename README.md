@@ -2,6 +2,10 @@
 # 🎮 GameTherapy: Interactive Mental Health Gaming Platform
 Welcome to **Game Therapy**, an adaptive gaming platform designed to support individuals with cognitive, social, and emotional challenges. Our solution combines innovative games, real-time AI support, and gesture-based controls to create a personalized therapeutic experience.
 
+Watch our detailed walkthrough of Game Therapy:
+[![Watch the Video](https://img.youtube.com/vi/Lg2mKiUPsIM/0.jpg)](https://www.youtube.com/watch?v=Lg2mKiUPsIM)
+
+
 ---
 
 ## What is Game Therapy?
